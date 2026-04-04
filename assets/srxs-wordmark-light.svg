@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SRxS – Simplified RX Solutions | Wordmark Only – Light Background -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 72" width="220" height="72" role="img" aria-label="SRxS – Simplified RX Solutions">
+  <title>SRxS – Simplified RX Solutions</title>
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#00a882"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Wordmark -->
+  <text x="8" y="48" font-family="'Arial Black', Arial, sans-serif" font-size="46" font-weight="900" letter-spacing="-1">
+    <tspan fill="#080d14">SR</tspan><tspan fill="url(#tealGrad)" filter="url(#glow)">x</tspan><tspan fill="#080d14">S</tspan>
+  </text>
+
+  <!-- Separator -->
+  <line x1="8" y1="56" x2="158" y2="56" stroke="rgba(0,212,170,0.4)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="8" y="67" font-family="Arial, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.2" fill="rgba(8,13,20,0.45)">SIMPLIFIED RX SOLUTIONS</text>
+</svg>

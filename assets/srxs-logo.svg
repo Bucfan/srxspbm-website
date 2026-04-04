@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SRxS – Simplified RX Solutions | Primary Logo (Dark Background) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" width="300" height="72" role="img" aria-label="SRxS – Simplified RX Solutions">
+  <title>SRxS – Simplified RX Solutions</title>
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#00a882"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#162030"/>
+      <stop offset="100%" stop-color="#0d1720"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ── ICON ── -->
+  <!-- Rounded square container -->
+  <rect x="2" y="4" width="64" height="64" rx="14" ry="14" fill="url(#bgGrad)" stroke="rgba(0,212,170,0.3)" stroke-width="1.2"/>
+  <!-- Top teal accent bar -->
+  <rect x="2" y="4" width="64" height="3" rx="3" fill="url(#tealGrad)"/>
+  <!-- Horizontal pill -->
+  <rect x="18" y="28" width="32" height="10" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <!-- Vertical pill -->
+  <rect x="29" y="17" width="10" height="32" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <!-- Center glow intersection -->
+  <rect x="29" y="28" width="10" height="10" rx="2" fill="url(#tealGrad)" filter="url(#glow)"/>
+  <!-- Corner accent dots -->
+  <circle cx="9" cy="11" r="2" fill="#00d4aa" opacity="0.4"/>
+  <circle cx="59" cy="61" r="2" fill="#00d4aa" opacity="0.4"/>
+
+  <!-- ── WORDMARK ── -->
+  <text x="82" y="37" font-family="'Arial Black', Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="-0.5">
+    <tspan fill="#f0f4f8">SR</tspan><tspan fill="#00d4aa" filter="url(#glow)">x</tspan><tspan fill="#f0f4f8">S</tspan>
+  </text>
+
+  <!-- Separator line -->
+  <line x1="82" y1="44" x2="174" y2="44" stroke="rgba(0,212,170,0.25)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="82" y="57" font-family="Arial, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.2" fill="rgba(240,244,248,0.4)">SIMPLIFIED RX SOLUTIONS</text>
+</svg>

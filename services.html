@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#00d4aa">
+<title>Services — SRxS | Simplified RX Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080d14;
+    --surface: #0f1923;
+    --surface2: #162030;
+    --border: rgba(255,255,255,0.07);
+    --teal: #00d4aa;
+    --teal-dim: rgba(0,212,170,0.12);
+    --teal-glow: rgba(0,212,170,0.25);
+    --white: #f0f4f8;
+    --muted: rgba(240,244,248,0.45);
+    --muted2: rgba(240,244,248,0.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 5%;
+    background: rgba(8,13,20,0.85);
+    backdrop-filter: blur(20px) saturate(1.5);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.8rem; font-weight: 500;
+    color: var(--muted); transition: color 0.2s;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--teal); }
+  .nav-cta {
+    background: var(--teal) !important; color: var(--bg) !important;
+    padding: 0.55rem 1.25rem; border-radius: 6px; font-weight: 600 !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.85 !important; }
+  .nav-discount {
+    background: rgba(0,212,170,0.12) !important;
+    border: 1px solid rgba(0,212,170,0.3) !important;
+    color: #00d4aa !important;
+    padding: 0.45rem 1rem; border-radius: 6px; font-weight: 600 !important;
+    letter-spacing: 0.04em !important; font-size: 0.78rem !important;
+    transition: background 0.2s, box-shadow 0.2s !important;
+  }
+  .nav-discount:hover { background: rgba(0,212,170,0.22) !important; box-shadow: 0 0 16px rgba(0,212,170,0.2) !important; }
+
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 10rem 5% 6rem;
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
+  }
+  .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .orb-1 { width: 500px; height: 500px; background: rgba(0,212,170,0.08); top: -100px; left: 50%; transform: translateX(-50%); }
+  .orb-2 { width: 300px; height: 300px; background: rgba(0,100,255,0.06); bottom: 0; right: 5%; }
+
+  .page-hero-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,170,0.25);
+    padding: 0.35rem 1rem; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); box-shadow: 0 0 8px var(--teal);
+    animation: pulse 2s infinite;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 .accent { color: var(--teal); }
+
+  .hero-sub {
+    font-size: 1.05rem; line-height: 1.8; color: var(--muted);
+    max-width: 600px; margin: 0 auto 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  /* ── COMMON ── */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1.5px; background: var(--teal); }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .body-text {
+    font-size: 0.95rem; line-height: 1.85; color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── SERVICE CATEGORIES ── */
+  .services-nav {
+    position: relative; z-index: 1;
+    padding: 0 5% 4rem;
+    display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap;
+  }
+  .cat-pill {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.5rem 1.2rem; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 500; cursor: pointer;
+    transition: all 0.2s; text-decoration: none;
+  }
+  .cat-pill:hover, .cat-pill.active {
+    background: var(--teal-dim);
+    border-color: rgba(0,212,170,0.35);
+    color: var(--teal);
+  }
+
+  /* ── SERVICE BLOCKS ── */
+  .service-block {
+    padding: 5rem 5%;
+    position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .service-block + .service-block {
+    border-top: 1px solid var(--border);
+  }
+
+  .block-header {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 4rem;
+    align-items: start; margin-bottom: 3rem;
+  }
+
+  .block-label-wrap { position: sticky; top: 7rem; }
+
+  .block-icon {
+    width: 56px; height: 56px; border-radius: 12px;
+    background: var(--teal-dim); border: 1px solid rgba(0,212,170,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 1.25rem;
+  }
+
+  .block-label-wrap h2 {
+    font-size: 1.6rem; margin-bottom: 0.75rem;
+  }
+
+  .block-label-wrap p {
+    font-size: 0.88rem; line-height: 1.75; color: var(--muted);
+  }
+
+  .features-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .feature-card:hover {
+    border-color: rgba(0,212,170,0.3);
+    background: var(--surface2);
+    transform: translateY(-3px);
+  }
+  .feature-card:hover::before { opacity: 1; }
+
+  .feature-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.6rem;
+  }
+  .feature-card p {
+    font-size: 0.82rem; line-height: 1.7; color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .feature-bullets { list-style: none; }
+  .feature-bullets li {
+    font-size: 0.77rem; color: var(--muted2);
+    padding: 0.25rem 0;
+    display: flex; align-items: flex-start; gap: 0.5rem;
+    line-height: 1.5;
+  }
+  .feature-bullets li::before {
+    content: '›'; color: var(--teal); font-weight: 700;
+    flex-shrink: 0; margin-top: 0.05rem;
+  }
+
+  /* ── ALTERNATING DARK SECTIONS ── */
+  .dark-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 5%;
+    position: relative; z-index: 1; overflow: hidden;
+  }
+  .dark-section::before {
+    content: '';
+    position: absolute; top: -150px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .dark-section .inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* ── HIGHLIGHT STRIP ── */
+  .highlight-strip {
+    background: linear-gradient(135deg, rgba(0,212,170,0.1), rgba(0,212,170,0.04));
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 16px;
+    padding: 2.5rem 3rem;
+    display: flex; align-items: center; gap: 2rem;
+    margin-top: 3rem;
+  }
+  .highlight-strip .hs-icon { font-size: 2rem; flex-shrink: 0; }
+  .highlight-strip h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem;
+  }
+  .highlight-strip p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 8rem 5%; text-align: center;
+    position: relative; overflow: hidden; z-index: 1;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(0,212,170,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+  .cta-section p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--teal); color: var(--bg);
+    padding: 0.85rem 2rem; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 600; text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { box-shadow: 0 0 30px rgba(0,212,170,0.4); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1px solid var(--border); color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.2s, background 0.2s;
+    margin-left: 1rem;
+  }
+  .btn-ghost:hover { border-color: rgba(0,212,170,0.4); background: var(--teal-dim); }
+
+  .btn-discount {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: linear-gradient(135deg, #00d4aa, #00a882);
+    color: var(--bg); padding: 0.85rem 2rem; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 700; text-decoration: none;
+    box-shadow: 0 0 24px rgba(0,212,170,0.3);
+    transition: box-shadow 0.2s, transform 0.2s;
+    margin-left: 1rem;
+  }
+  .btn-discount:hover { box-shadow: 0 0 40px rgba(0,212,170,0.5); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; color: var(--muted2);
+    position: relative; z-index: 1;
+  }
+  .footer-logo img { height: 32px; filter: brightness(0) invert(1); opacity: 0.5; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .block-header { grid-template-columns: 1fr; gap: 2rem; }
+    .block-label-wrap { position: static; }
+    .features-grid { grid-template-columns: 1fr; }
+    nav .nav-links li:not(:last-child) { display: none; }
+    .highlight-strip { flex-direction: column; gap: 1rem; padding: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .btn-ghost, .btn-discount { margin-left: 0; margin-top: 0.75rem; }
+    .cta-inner .btn-primary, .cta-inner .btn-ghost, .cta-inner .btn-discount {
+      display: block; text-align: center; margin: 0.5rem auto; width: fit-content;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html"><svg style="height:44px;width:auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" width="300" height="72">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#00a882"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#162030"/>
+      <stop offset="100%" style="stop-color:#0d1720"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon: rounded square container -->
+  <rect x="2" y="4" width="64" height="64" rx="14" ry="14" fill="url(#bgGrad)" stroke="rgba(0,212,170,0.3)" stroke-width="1.2"/>
+  <!-- Top teal accent bar -->
+  <rect x="2" y="4" width="64" height="3" rx="3" fill="url(#tealGrad)"/>
+
+  <!-- Cross / pill shape in center -->
+  <rect x="18" y="28" width="32" height="10" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <rect x="29" y="17" width="10" height="32" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <!-- Center glow intersection -->
+  <rect x="29" y="28" width="10" height="10" rx="2" fill="url(#tealGrad)" filter="url(#glow)"/>
+
+  <!-- Corner dots -->
+  <circle cx="9" cy="11" r="2" fill="#00d4aa" opacity="0.4"/>
+  <circle cx="59" cy="61" r="2" fill="#00d4aa" opacity="0.4"/>
+
+  <!-- Wordmark: single text element for tight, consistent spacing -->
+  <text x="82" y="37" font-family="Arial Black, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="-0.5"><tspan fill="#f0f4f8">SR</tspan><tspan fill="#00d4aa" filter="url(#glow)">x</tspan><tspan fill="#f0f4f8">S</tspan></text>
+
+  <!-- Separator -->
+  <line x1="82" y1="44" x2="174" y2="44" stroke="rgba(0,212,170,0.2)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="82" y="57" font-family="Arial, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.2" fill="rgba(240,244,248,0.38)">SIMPLIFIED RX SOLUTIONS</text>
+</svg></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    
+    <li><a href="discount-card.html">Discount Card Programs</a></li>
+    <li><a href="https://srspricing.rxlogic.com/srxs" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li><li><a href="#" onclick="openModal(); return false;" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-hero-content">
+    <div class="hero-badge">What We Offer</div>
+    <h1>Services Built for the<br><span class="accent">Modern PBM</span> Landscape</h1>
+    <p class="hero-sub">
+      From claims adjudication to real-time analytics, every SRxS service is designed to be fully configurable, scalable, and delivered at a cost that works for organizations of every size.
+    </p>
+  </div>
+</section>
+
+<!-- CATEGORY PILLS -->
+<div class="services-nav">
+  <a href="#adjudication" class="cat-pill">Claims & Adjudication</a>
+  <a href="#network" class="cat-pill">Network & Payment</a>
+  <a href="#rebates" class="cat-pill">Rebate Management</a>
+  <a href="#formulary" class="cat-pill">Formulary & Plan Design</a>
+  <a href="#discount" class="cat-pill">Discount & Copay Programs</a>
+  <a href="#data" class="cat-pill">Data & Analytics</a>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     1. CLAIMS & ADJUDICATION
+════════════════════════════════════════ -->
+<div class="service-block" id="adjudication">
+  <div class="block-header">
+    <div class="block-label-wrap">
+      <div class="block-icon">💊</div>
+      <div class="section-label">Claims & Adjudication</div>
+      <h2>Real-Time, Rules-Driven Claims Processing</h2>
+      <p>Our adjudication engine is built to handle virtually any business rule — at any scale. Fully configurable, fully transparent, and built for speed.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Claims Adjudication Platform</h3>
+        <p>A modern, cloud-native adjudication engine that processes pharmacy claims in real time with pinpoint accuracy.</p>
+        <ul class="feature-bullets">
+          <li>Configurable business rules engine — apply virtually any clinical, financial, or operational rule</li>
+          <li>Real-time claim processing with sub-second response times</li>
+          <li>Support for retail, mail-order, specialty, and long-term care claims</li>
+          <li>NCPDP-compliant transaction processing</li>
+          <li>Reject and override management with audit trails</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>Workers' Compensation Pharmacy</h3>
+        <p>Specialized adjudication logic purpose-built for the unique billing and regulatory requirements of Workers' Comp pharmacy programs.</p>
+        <ul class="feature-bullets">
+          <li>State-specific fee schedule integration</li>
+          <li>Injury and diagnosis code validation</li>
+          <li>Controlled substance monitoring and reporting</li>
+          <li>Coordination with medical bill review workflows</li>
+          <li>Employer and adjuster-level reporting</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>Hospice Pharmacy Adjudication</h3>
+        <p>Adjudication configured for the sensitivity and clinical complexity of hospice and end-of-life pharmacy care.</p>
+        <ul class="feature-bullets">
+          <li>Formulary rules aligned with comfort-focused care protocols</li>
+          <li>Diagnosis and eligibility validation for hospice beneficiaries</li>
+          <li>Seamless coordination with Medicare Part A billing</li>
+          <li>Palliative care drug list management</li>
+          <li>Provider and facility-level reporting</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>Customized Payment Administration</h3>
+        <p>Flexible, client-configured pharmacy payment workflows that reduce administrative burden and eliminate payment errors.</p>
+        <ul class="feature-bullets">
+          <li>Custom payment cycles and disbursement schedules</li>
+          <li>Multi-payer and multi-plan payment routing</li>
+          <li>Automated reconciliation and exception handling</li>
+          <li>Electronic remittance and explanation of benefits (EOB)</li>
+          <li>Tailored invoicing tied to client billing structures</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="highlight-strip">
+    <div class="hs-icon">⚡</div>
+    <div>
+      <h3>Any Rule. Any Plan. Any Scale.</h3>
+      <p>Our adjudication platform applies virtually any business rule — clinical edits, coverage restrictions, step therapy, quantity limits, prior authorization, and more — without requiring custom development. Configuration is handled through our intuitive rules management interface.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     2. NETWORK & PAYMENT
+════════════════════════════════════════ -->
+<div class="dark-section" id="network">
+  <div class="inner">
+    <div class="block-header">
+      <div class="block-label-wrap">
+        <div class="block-icon">🏥</div>
+        <div class="section-label">Network & Payment</div>
+        <h2>Nationwide Access. Seamless Administration.</h2>
+        <p>SRxS connects clients to a broad pharmacy network while delivering the payment infrastructure to manage it all efficiently.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Nationwide Pharmacy Network Rental</h3>
+          <p>Instant access to a comprehensive national pharmacy network — without the overhead of building or owning one.</p>
+          <ul class="feature-bullets">
+            <li>Access to 60,000+ retail pharmacy locations nationwide</li>
+            <li>Specialty, mail-order, and long-term care network options</li>
+            <li>Competitive network pricing and reimbursement rates</li>
+            <li>Network performance monitoring and reporting</li>
+            <li>Custom network configurations by geography or plan type</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Network Design & Optimization</h3>
+          <p>Strategic pharmacy network architecture tailored to your member population, cost targets, and clinical goals.</p>
+          <ul class="feature-bullets">
+            <li>Preferred, standard, and limited network configurations</li>
+            <li>Geographic access analysis and gap identification</li>
+            <li>Tiered network design for cost management</li>
+            <li>Mail-order and specialty channel integration</li>
+            <li>Network adequacy reporting for regulatory compliance</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>MAC Pricing Management</h3>
+          <p>Maximum Allowable Cost (MAC) pricing administration to control generic drug spend and ensure competitive reimbursement.</p>
+          <ul class="feature-bullets">
+            <li>Custom MAC list creation and maintenance</li>
+            <li>Automated MAC price updates and market alignment</li>
+            <li>MAC appeal management and adjudication integration</li>
+            <li>Transparent pricing analytics and benchmarking</li>
+            <li>State-specific MAC compliance management</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Tailored Invoicing Services</h3>
+          <p>Client-specific invoicing designed around your billing structure, payment terms, and reporting requirements.</p>
+          <ul class="feature-bullets">
+            <li>Flexible invoice frequency — weekly, bi-weekly, or monthly</li>
+            <li>Plan, group, and member-level billing breakdowns</li>
+            <li>Automated invoice generation and delivery</li>
+            <li>Integrated payment reconciliation and aging reports</li>
+            <li>Custom invoice formatting and branding options</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     3. REBATE MANAGEMENT
+════════════════════════════════════════ -->
+<div class="service-block" id="rebates">
+  <div class="block-header">
+    <div class="block-label-wrap">
+      <div class="block-icon">💰</div>
+      <div class="section-label">Rebate Management</div>
+      <h2>Maximizing Manufacturer Value. End to End.</h2>
+      <p>SRxS manages the full rebate lifecycle — from contracting and tracking to reconciliation and client distribution — with full transparency at every step.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Rebate Administration</h3>
+        <p>Comprehensive rebate management that captures every eligible dollar owed and ensures accurate, timely distribution.</p>
+        <ul class="feature-bullets">
+          <li>Manufacturer rebate contract management and tracking</li>
+          <li>Automated rebate calculation and accrual reporting</li>
+          <li>Claim-level rebate eligibility validation</li>
+          <li>Rebate payment processing and reconciliation</li>
+          <li>Client-level rebate pass-through reporting</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>Rebate Contracting Support</h3>
+        <p>Expert guidance on structuring manufacturer rebate agreements to maximize return across your formulary.</p>
+        <ul class="feature-bullets">
+          <li>Market share and performance-based rebate structuring</li>
+          <li>Formulary position strategy and tier placement analysis</li>
+          <li>Supplemental rebate program management</li>
+          <li>Rebate forecast modeling and scenario analysis</li>
+          <li>Audit-ready documentation and reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="highlight-strip">
+    <div class="hs-icon">🔍</div>
+    <div>
+      <h3>Full Transparency. Zero Guesswork.</h3>
+      <p>Every rebate dollar is tracked, reported, and reconciled with complete visibility. Our clients see exactly what was earned, what was received, and what was passed through — with no black boxes and no buried fees.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     4. FORMULARY & PLAN DESIGN
+════════════════════════════════════════ -->
+<div class="dark-section" id="formulary">
+  <div class="inner">
+    <div class="block-header">
+      <div class="block-label-wrap">
+        <div class="block-icon">📋</div>
+        <div class="section-label">Formulary & Plan Design</div>
+        <h2>Configurable Plans. Clinically Sound Formularies.</h2>
+        <p>Build benefit structures and drug lists that align with your clinical philosophy, cost targets, and member population — all managed through one platform.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Formulary Management</h3>
+          <p>Dynamic formulary tools that keep your drug list current, clinically appropriate, and optimized for cost and quality.</p>
+          <ul class="feature-bullets">
+            <li>Tier-based formulary construction and maintenance</li>
+            <li>Clinical edit management — PA, step therapy, quantity limits</li>
+            <li>Formulary exception and override processing</li>
+            <li>Drug utilization review (DUR) integration</li>
+            <li>Regulatory and compliance monitoring</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Plan & Benefit Design Management</h3>
+          <p>Fully configurable plan architecture supporting any benefit structure, member segment, or program type.</p>
+          <ul class="feature-bullets">
+            <li>Copay, coinsurance, and deductible configuration</li>
+            <li>Multi-tier and multi-group plan support</li>
+            <li>Accumulator and out-of-pocket maximum management</li>
+            <li>Specialty and high-cost drug benefit carve-outs</li>
+            <li>Medicare, Medicaid, commercial, and self-funded plan support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     5. DISCOUNT & COPAY PROGRAMS
+════════════════════════════════════════ -->
+<div class="service-block" id="discount">
+  <div class="block-header">
+    <div class="block-label-wrap">
+      <div class="block-icon">🎫</div>
+      <div class="section-label">Discount & Copay Programs</div>
+      <h2>Reducing Member Costs at the Point of Sale.</h2>
+      <p>SRxS powers pharmacy discount and copay assistance programs that deliver immediate savings to members — with the infrastructure to scale them nationally.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Pharmacy Discount Card Programs</h3>
+        <p>End-to-end discount card program administration — from card issuance and branding to real-time adjudication and reporting.</p>
+        <ul class="feature-bullets">
+          <li>Custom-branded discount card design and fulfillment</li>
+          <li>Real-time adjudication at point of sale</li>
+          <li>Access to negotiated rates across our nationwide network</li>
+          <li>Digital and physical card delivery options</li>
+          <li>Member utilization and savings reporting</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>Copay & Coupon Assistance Management</h3>
+        <p>Pharmacy manufacturer copay card and patient assistance program administration — reducing financial barriers for members.</p>
+        <ul class="feature-bullets">
+          <li>Manufacturer copay card integration and adjudication</li>
+          <li>Patient assistance program (PAP) enrollment support</li>
+          <li>Specialty drug copay accumulator management</li>
+          <li>Maximizer program administration</li>
+          <li>Member-facing savings reporting and EOB coordination</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="highlight-strip">
+    <div class="hs-icon">💊</div>
+    <div>
+      <h3>Get Your Pharmacy Discount Card Today</h3>
+      <p>SRxS discount cards provide access to negotiated prescription pricing at thousands of pharmacies nationwide — at no cost to the member. Savings are applied instantly at the point of sale.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     6. DATA & ANALYTICS
+════════════════════════════════════════ -->
+<div class="dark-section" id="data">
+  <div class="inner">
+    <div class="block-header">
+      <div class="block-label-wrap">
+        <div class="block-icon">📊</div>
+        <div class="section-label">Data & Analytics</div>
+        <h2>Real-Time Intelligence. Actionable Insights.</h2>
+        <p>Our data infrastructure gives clients live visibility into claims, utilization, costs, and performance — with the tools to act on what they see.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Advanced Data Reporting & Analytics</h3>
+          <p>Comprehensive reporting dashboards that surface the right data at the right time — from executive summaries to claim-level detail.</p>
+          <ul class="feature-bullets">
+            <li>Configurable dashboards by role, plan, or group</li>
+            <li>Drug utilization, trend, and cost analysis</li>
+            <li>Member adherence and outcomes reporting</li>
+            <li>Formulary and network performance metrics</li>
+            <li>Scheduled and on-demand report delivery</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Real-Time Data Access via API Library</h3>
+          <p>A comprehensive REST API library providing live, secure access to claims, eligibility, member, and benefit data.</p>
+          <ul class="feature-bullets">
+            <li>RESTful API with real-time claim and eligibility data</li>
+            <li>Secure OAuth 2.0 authentication</li>
+            <li>Pre-built integrations for common health IT systems</li>
+            <li>Sandbox environment for testing and development</li>
+            <li>Full API documentation and developer support</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Automated Data Transformation Toolkit</h3>
+          <p>Eliminate manual data handling with automated ingestion, mapping, and transformation from any source format.</p>
+          <ul class="feature-bullets">
+            <li>Support for NCPDP, HL7, EDI, and custom file formats</li>
+            <li>Automated eligibility file loading and validation</li>
+            <li>Custom data mapping and field transformation</li>
+            <li>Error detection, alerting, and exception management</li>
+            <li>Scheduled and event-driven data pipeline execution</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Surescripts F&amp;B and RTPB Integration</h3>
+          <p>Certified integration with Surescripts' Formulary &amp; Benefit (F&amp;B) and Real-Time Prescription Benefit (RTPB) services — delivering accurate, real-time drug cost and coverage information directly to prescribers at the point of care.</p>
+          <ul class="feature-bullets">
+            <li>Surescripts Formulary &amp; Benefit (F&amp;B) data transmission to prescribers and EHRs</li>
+            <li>Real-Time Prescription Benefit (RTPB) integration for live patient cost transparency</li>
+            <li>Accurate member-specific cost-sharing displayed at point of prescribing</li>
+            <li>Formulary status, tier, and coverage restriction data delivered in real time</li>
+            <li>Supports prescriber-driven therapeutic alternatives and lower-cost options</li>
+            <li>Reduces prescription abandonment by surfacing accurate out-of-pocket costs upfront</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content:center;">Get Started</div>
+    <h2>Ready to put these<br>services to work?</h2>
+    <p>Every SRxS service is fully configurable to your organization's needs. Let's talk about building the right solution for you.</p>
+    <a href="/cdn-cgi/l/email-protection#731a1d151c3300010b005d101c1e" class="btn-primary">Talk to an Expert →</a>
+    <a href="https://srspricing.rxlogic.com/srxs" target="_blank" rel="noopener noreferrer" class="btn-discount">💊 Get Pharmacy Discount Card</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg style="height:30px;width:auto;opacity:0.55;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" width="300" height="72">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#00a882"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#162030"/>
+      <stop offset="100%" style="stop-color:#0d1720"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon: rounded square container -->
+  <rect x="2" y="4" width="64" height="64" rx="14" ry="14" fill="url(#bgGrad)" stroke="rgba(0,212,170,0.3)" stroke-width="1.2"/>
+  <!-- Top teal accent bar -->
+  <rect x="2" y="4" width="64" height="3" rx="3" fill="url(#tealGrad)"/>
+
+  <!-- Cross / pill shape in center -->
+  <rect x="18" y="28" width="32" height="10" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <rect x="29" y="17" width="10" height="32" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <!-- Center glow intersection -->
+  <rect x="29" y="28" width="10" height="10" rx="2" fill="url(#tealGrad)" filter="url(#glow)"/>
+
+  <!-- Corner dots -->
+  <circle cx="9" cy="11" r="2" fill="#00d4aa" opacity="0.4"/>
+  <circle cx="59" cy="61" r="2" fill="#00d4aa" opacity="0.4"/>
+
+  <!-- Wordmark: single text element for tight, consistent spacing -->
+  <text x="82" y="37" font-family="Arial Black, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="-0.5"><tspan fill="#f0f4f8">SR</tspan><tspan fill="#00d4aa" filter="url(#glow)">x</tspan><tspan fill="#f0f4f8">S</tspan></text>
+
+  <!-- Separator -->
+  <line x1="82" y1="44" x2="174" y2="44" stroke="rgba(0,212,170,0.2)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="82" y="57" font-family="Arial, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.2" fill="rgba(240,244,248,0.38)">SIMPLIFIED RX SOLUTIONS</text>
+</svg>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#technology">Platform</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div>© 2025 SRxS. All rights reserved.</div>
+</footer>
+
+<!-- ── CONTACT MODAL ── -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; z-index:999; align-items:center; justify-content:center;">
+  <div id="modalBackdrop" onclick="closeModal()" style="position:absolute; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);"></div>
+  <div style="position:relative; z-index:1; background:#0f1923; border:1px solid rgba(0,212,170,0.25); border-radius:16px; padding:2.5rem; width:100%; max-width:480px; margin:1rem; box-shadow:0 40px 80px rgba(0,0,0,0.5);">
+    <div style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,#00d4aa,transparent); border-radius:16px 16px 0 0;"></div>
+    <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); color:#f0f4f8; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='rgba(0,212,170,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">&#x2715;</button>
+    <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(0,212,170,0.12); border:1px solid rgba(0,212,170,0.25); padding:0.3rem 0.9rem; border-radius:100px; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#00d4aa; margin-bottom:1.25rem;">Get In Touch</div>
+    <h3 style="font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; color:#f0f4f8; margin-bottom:0.4rem;">Talk to an Expert</h3>
+    <p style="font-size:0.83rem; color:rgba(240,244,248,0.45); margin-bottom:1.75rem; line-height:1.6;">Fill out the form below and a member of the SRxS team will be in touch shortly.</p>
+    <form id="contactForm" onsubmit="submitForm(event)" style="display:flex; flex-direction:column; gap:1rem;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div>
+          <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">Full Name *</label>
+          <input type="text" id="cf-name" required placeholder="Jane Smith" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">Phone Number</label>
+          <input type="tel" id="cf-phone" placeholder="(555) 000-0000" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+      </div>
+      <div>
+        <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">Email Address *</label>
+        <input type="email" id="cf-email" required placeholder="jane@company.com" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+      </div>
+      <div>
+        <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">How Can We Help? *</label>
+        <textarea id="cf-message" required rows="4" placeholder="Tell us about your organization and what you're looking for..." style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; resize:vertical; min-height:100px; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+      </div>
+      <button type="submit" id="submitBtn" style="background:#00d4aa; color:#080d14; border:none; padding:0.85rem 2rem; border-radius:8px; font-size:0.9rem; font-weight:700; cursor:pointer; font-family:'Syne',sans-serif; letter-spacing:0.02em; transition:box-shadow 0.2s, transform 0.2s;" onmouseover="this.style.boxShadow='0 0 30px rgba(0,212,170,0.4)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='none'; this.style.transform='none'">Send Message &#x2192;</button>
+    </form>
+    <div id="formSuccess" style="display:none; text-align:center; padding:2rem 0;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">&#x2705;</div>
+      <h3 style="font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:#00d4aa; margin-bottom:0.5rem;">Message Sent!</h3>
+      <p style="font-size:0.85rem; color:rgba(240,244,248,0.5); line-height:1.6;">Thank you for reaching out. A member of the SRxS team will be in touch with you shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  var modal = document.getElementById('contactModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('contactForm').style.display = 'flex';
+  document.getElementById('formSuccess').style.display = 'none';
+}
+function closeModal() {
+  document.getElementById('contactModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+function submitForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  var formData = new FormData();
+  formData.append('name',    document.getElementById('cf-name').value);
+  formData.append('email',   document.getElementById('cf-email').value);
+  formData.append('phone',   document.getElementById('cf-phone').value);
+  formData.append('message', document.getElementById('cf-message').value);
+
+  fetch('contact.php', { method: 'POST', body: formData })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        setTimeout(closeModal, 3500);
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        alert('Something went wrong: ' + data.message);
+      }
+    })
+    .catch(function() {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Network error. Please email us directly at info@srxs.com');
+    });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href="#contact"], a[href="index.html#contact"]').forEach(function(a) {
+    a.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
+  });
+  document.querySelectorAll('a[href^="mailto:info@srxs"]').forEach(function(a) {
+    a.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
+  });
+});
+</script>
+</body>
+</html>

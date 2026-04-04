@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#00d4aa">
+<title>About Us — SRxS | Simplified RX Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080d14;
+    --surface: #0f1923;
+    --surface2: #162030;
+    --border: rgba(255,255,255,0.07);
+    --teal: #00d4aa;
+    --teal-dim: rgba(0,212,170,0.12);
+    --teal-glow: rgba(0,212,170,0.25);
+    --white: #f0f4f8;
+    --muted: rgba(240,244,248,0.45);
+    --muted2: rgba(240,244,248,0.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 5%;
+    background: rgba(8,13,20,0.85);
+    backdrop-filter: blur(20px) saturate(1.5);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+  .nav-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); }
+
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.8rem; font-weight: 500;
+    color: var(--muted); transition: color 0.2s;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--teal); }
+
+  .nav-cta {
+    background: var(--teal) !important; color: var(--bg) !important;
+    padding: 0.55rem 1.25rem; border-radius: 6px; font-weight: 600 !important;
+    letter-spacing: 0.04em !important; transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.85 !important; }
+  .nav-discount {
+    background: rgba(0,212,170,0.12) !important;
+    border: 1px solid rgba(0,212,170,0.3) !important;
+    color: #00d4aa !important;
+    padding: 0.45rem 1rem; border-radius: 6px; font-weight: 600 !important;
+    letter-spacing: 0.04em !important; font-size: 0.78rem !important;
+    transition: background 0.2s, box-shadow 0.2s !important;
+  }
+  .nav-discount:hover { background: rgba(0,212,170,0.22) !important; box-shadow: 0 0 16px rgba(0,212,170,0.2) !important; }
+
+
+  /* HERO */
+  .page-hero {
+    padding: 10rem 5% 6rem;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
+  }
+
+  .orb {
+    position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;
+  }
+  .orb-1 { width: 500px; height: 500px; background: rgba(0,212,170,0.08); top: -100px; left: 50%; transform: translateX(-50%); }
+  .orb-2 { width: 300px; height: 300px; background: rgba(0,100,255,0.06); bottom: 0; right: 5%; }
+
+  .page-hero-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,170,0.25);
+    padding: 0.35rem 1rem; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); box-shadow: 0 0 8px var(--teal);
+    animation: pulse 2s infinite;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 .accent { color: var(--teal); }
+
+  .hero-sub {
+    font-size: 1.05rem; line-height: 1.8; color: var(--muted);
+    max-width: 600px; margin: 0 auto;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  /* MISSION STRIP */
+  .mission-strip {
+    padding: 5rem 5%;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative; z-index: 1;
+  }
+
+  .mission-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center;
+  }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1.5px; background: var(--teal); }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 1rem;
+  }
+
+  .body-text {
+    font-size: 0.95rem; line-height: 1.85; color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  /* EXPERTISE PILLS */
+  .expertise-pills {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem;
+  }
+  .pill {
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,170,0.2);
+    color: var(--teal);
+    padding: 0.4rem 0.9rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    padding: 4rem 5%;
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 2rem;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .stat-card:hover { border-color: rgba(0,212,170,0.3); transform: translateY(-4px); }
+  .stat-card:hover::before { opacity: 1; }
+
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem; font-weight: 800;
+    color: var(--teal); line-height: 1; margin-bottom: 0.4rem;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+
+  /* FOUNDERS */
+  .founders {
+    padding: 6rem 5%;
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  .founders-header { text-align: center; margin-bottom: 4rem; }
+  .founders-header h2 { margin-bottom: 0.75rem; }
+  .founders-header p { font-size: 0.95rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+  .founders-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  }
+
+  .founder-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 2.25rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .founder-card:hover { border-color: rgba(0,212,170,0.3); transform: translateY(-5px); }
+
+  .founder-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--teal), #00a882);
+  }
+
+  .founder-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal-dim), var(--surface2));
+    border: 2px solid rgba(0,212,170,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem; font-weight: 800; color: var(--teal);
+    margin-bottom: 1.25rem;
+  }
+
+  .founder-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.2rem;
+  }
+
+  .founder-title {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
+  }
+
+  .founder-bio {
+    font-size: 0.83rem; line-height: 1.75; color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .founder-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .founder-email {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    margin-top: 1.1rem;
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.25);
+    color: #00d4aa;
+    padding: 0.45rem 1rem; border-radius: 8px;
+    font-size: 0.75rem; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.02em;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .founder-email:hover {
+    background: rgba(0,212,170,0.18);
+    box-shadow: 0 0 12px rgba(0,212,170,0.2);
+  }
+  .founder-email::before {
+    content: '✉';
+    font-size: 0.8rem;
+  }
+  .founder-tag {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 0.28rem 0.65rem; border-radius: 6px;
+    font-size: 0.68rem; color: var(--muted2);
+    letter-spacing: 0.03em;
+  }
+
+  /* EXPERTISE SECTION */
+  .expertise-section {
+    padding: 6rem 5%;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden; z-index: 1;
+  }
+  .expertise-section::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,212,170,0.07) 0%, transparent 65%);
+    border-radius: 50%; pointer-events: none;
+  }
+
+  .expertise-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  .expertise-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+
+  .exp-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .exp-box:hover { border-color: rgba(0,212,170,0.4); background: var(--teal-dim); }
+  .exp-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .exp-box h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.82rem; font-weight: 600; margin-bottom: 0.3rem;
+  }
+  .exp-box p { font-size: 0.73rem; color: var(--muted); line-height: 1.55; }
+
+  /* CTA */
+  .cta-section {
+    padding: 8rem 5%; text-align: center;
+    position: relative; overflow: hidden; z-index: 1;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(0,212,170,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+  .cta-section p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--teal); color: var(--bg);
+    padding: 0.85rem 2rem; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 600; text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { box-shadow: 0 0 30px rgba(0,212,170,0.4); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1px solid var(--border); color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.2s, background 0.2s;
+    margin-left: 1rem;
+  }
+  .btn-ghost:hover { border-color: rgba(0,212,170,0.4); background: var(--teal-dim); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; color: var(--muted2);
+    position: relative; z-index: 1;
+  }
+  .footer-logo img { height: 32px; filter: brightness(0) invert(1); opacity: 0.5; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    .founders-grid { grid-template-columns: 1fr 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .mission-inner, .expertise-inner { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media (max-width: 700px) {
+    .founders-grid { grid-template-columns: 1fr; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    nav .nav-links li:not(:last-child) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html"><svg style="height:44px;width:auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" width="300" height="72">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#00a882"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#162030"/>
+      <stop offset="100%" style="stop-color:#0d1720"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon: rounded square container -->
+  <rect x="2" y="4" width="64" height="64" rx="14" ry="14" fill="url(#bgGrad)" stroke="rgba(0,212,170,0.3)" stroke-width="1.2"/>
+  <!-- Top teal accent bar -->
+  <rect x="2" y="4" width="64" height="3" rx="3" fill="url(#tealGrad)"/>
+
+  <!-- Cross / pill shape in center -->
+  <rect x="18" y="28" width="32" height="10" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <rect x="29" y="17" width="10" height="32" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <!-- Center glow intersection -->
+  <rect x="29" y="28" width="10" height="10" rx="2" fill="url(#tealGrad)" filter="url(#glow)"/>
+
+  <!-- Corner dots -->
+  <circle cx="9" cy="11" r="2" fill="#00d4aa" opacity="0.4"/>
+  <circle cx="59" cy="61" r="2" fill="#00d4aa" opacity="0.4"/>
+
+  <!-- Wordmark: single text element for tight, consistent spacing -->
+  <text x="82" y="37" font-family="Arial Black, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="-0.5"><tspan fill="#f0f4f8">SR</tspan><tspan fill="#00d4aa" filter="url(#glow)">x</tspan><tspan fill="#f0f4f8">S</tspan></text>
+
+  <!-- Separator -->
+  <line x1="82" y1="44" x2="174" y2="44" stroke="rgba(0,212,170,0.2)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="82" y="57" font-family="Arial, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.2" fill="rgba(240,244,248,0.38)">SIMPLIFIED RX SOLUTIONS</text>
+</svg></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    
+    <li><a href="discount-card.html">Discount Card Programs</a></li>
+    <li><a href="https://srspricing.rxlogic.com/srxs" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li><li><a href="#" onclick="openModal(); return false;" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-hero-content">
+    <div class="hero-badge">Our Story</div>
+    <h1>Built by <span class="accent">PBM Veterans</span><br>for the Industry</h1>
+    <p class="hero-sub">
+      SRxS was founded by a team of pharmacy benefit management experts who spent decades inside the industry — and decided to build something better. We know the complexity firsthand because we lived it.
+    </p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission-strip">
+  <div class="mission-inner">
+    <div>
+      <div class="section-label">Our Mission</div>
+      <h2>Simplify. Innovate. Deliver.</h2>
+    </div>
+    <div>
+      <p class="body-text">
+        At SRxS, our mission is straightforward: eliminate unnecessary complexity from pharmacy benefit administration and put powerful, affordable technology in the hands of every client — regardless of size. We believe that enterprise-grade solutions should not require enterprise-grade budgets.
+      </p>
+      <p class="body-text">
+        Our founding team brings together deep operational expertise spanning Workers' Compensation, Hospice care, Rebate Management, Claims Adjudication, Plan and Network Design, and Discount Card Processing. That breadth of experience means we understand the nuances of every client segment we serve — and we architect our platform accordingly.
+      </p>
+      <div class="expertise-pills">
+        <span class="pill">Workers' Compensation</span>
+        <span class="pill">Hospice</span>
+        <span class="pill">Rebate Management</span>
+        <span class="pill">Claims Adjudication</span>
+        <span class="pill">Plan & Network Design</span>
+        <span class="pill">Discount Card Processing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-val">30+</div>
+    <div class="stat-label">Combined years of PBM industry leadership</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val">6+</div>
+    <div class="stat-label">Distinct pharmacy benefit disciplines mastered</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val">12+</div>
+    <div class="stat-label">Technology-driven services on one platform</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val">100%</div>
+    <div class="stat-label">Configurable to your unique business rules</div>
+  </div>
+</div>
+
+<!-- FOUNDERS -->
+<section class="founders">
+  <div class="founders-header">
+    <div class="section-label" style="justify-content:center;">Founding Team</div>
+    <h2>Leadership Shaped by Decades in PBM</h2>
+    <p>
+      Every member of the SRxS founding team has walked the floors of major PBM platforms and companies. We bring that institutional knowledge directly to our clients — without the red tape.
+    </p>
+  </div>
+
+  <div class="founders-grid">
+
+    <div class="founder-card">
+      <div class="founder-avatar">MW</div>
+      <div class="founder-name">Mitch Walker</div>
+      <div class="founder-title">Co-Founder</div>
+      <p class="founder-bio">
+        Mitch brings over 20 years of deep-rooted experience in pharmacy benefit management, with a career built across PBM operations, pharmacy network strategy, and Workers' Compensation pharmacy programs. His broad operational expertise and hands-on leadership have shaped complex benefit environments from the ground up, making him a trusted authority in delivering streamlined, effective PBM solutions.
+      </p>
+      <div class="founder-tags">
+        <span class="founder-tag">PBM Operations</span>
+        <span class="founder-tag">Network Strategy</span>
+        <span class="founder-tag">Workers' Compensation</span>
+        <span class="founder-tag">Benefit Administration</span>
+      </div>
+      <a href="mailto:mitch@simplifiedrxsolutions.com" class="founder-email">mitch@simplifiedrxsolutions.com</a>
+    </div>
+
+    <div class="founder-card">
+      <div class="founder-avatar">BB</div>
+      <div class="founder-name">Billy Buckles</div>
+      <div class="founder-title">Co-Founder &amp; Advisor</div>
+      <p class="founder-bio">
+        With 20+ years spanning the full breadth of the healthcare technology landscape, Billy's expertise is uniquely wide-ranging. From EMR systems and ePrescribing to claims adjudication, software development, project management, MAC pricing, and plan design, he has operated at every level of the healthcare stack. His ability to connect clinical, operational, and technical disciplines gives SRxS a rare competitive edge in building truly integrated solutions.
+      </p>
+      <div class="founder-tags">
+        <span class="founder-tag">Claims Adjudication</span>
+        <span class="founder-tag">Software Development</span>
+        <span class="founder-tag">ePrescribing</span>
+        <span class="founder-tag">Network Management</span>
+        <span class="founder-tag">MAC Management</span>
+        <span class="founder-tag">Plan Design</span>
+      </div>
+      <a href="mailto:billy@simplifiedrxsolutions.com" class="founder-email">billy@simplifiedrxsolutions.com</a>
+    </div>
+
+    <div class="founder-card">
+      <div class="founder-avatar">MB</div>
+      <div class="founder-name">Matthew Buckles</div>
+      <div class="founder-title">Co-Founder</div>
+      <p class="founder-bio">
+        Matthew contributes over 15 years of elite financial and accounting expertise, built through a distinguished career in tax, audit, and finance at one of the world's leading professional services firms. His rigorous analytical foundation and deep understanding of financial controls bring a level of fiscal discipline and transparency to SRxS that clients and partners can rely on — ensuring the business is built on a rock-solid financial foundation.
+      </p>
+      <div class="founder-tags">
+        <span class="founder-tag">Tax & Audit</span>
+        <span class="founder-tag">Finance Strategy</span>
+        <span class="founder-tag">Financial Controls</span>
+        <span class="founder-tag">Risk Management</span>
+      </div>
+      <a href="mailto:matthew@simplifiedrxsolutions.com" class="founder-email">matthew@simplifiedrxsolutions.com</a>
+    </div>
+
+    <div class="founder-card">
+      <div class="founder-avatar">JT</div>
+      <div class="founder-name">Jeff Tingey</div>
+      <div class="founder-title">Co-Founder</div>
+      <p class="founder-bio">
+        Jeff has spent 15+ years mastering two of the most value-generating disciplines in pharmacy benefit management: rebate strategy and network development. His expertise in structuring and managing manufacturer rebate programs — combined with a track record of building high-performing pharmacy networks — directly translates into measurable savings and stronger contracts for every SRxS client.
+      </p>
+      <div class="founder-tags">
+        <span class="founder-tag">Rebate Management</span>
+        <span class="founder-tag">PBM Network Building</span>
+        <span class="founder-tag">Manufacturer Contracting</span>
+        <span class="founder-tag">Cost Optimization</span>
+      </div>
+      <a href="mailto:jeff@simplifiedrxsolutions.com" class="founder-email">jeff@simplifiedrxsolutions.com</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise-section">
+  <div class="expertise-inner">
+    <div>
+      <div class="section-label">Areas of Expertise</div>
+      <h2>A Platform Born From Real-World Experience</h2>
+      <p class="body-text">
+        SRxS was not built in a boardroom — it was built from the inside out, informed by decades of working within the largest and most complex PBM environments in the country. Every feature, every workflow, and every integration reflects that lived expertise.
+      </p>
+      <p class="body-text">
+        Our founders have held senior roles at leading pharmacy benefit companies and platforms, giving us an unmatched perspective on what works, what doesn't, and what clients actually need.
+      </p>
+    </div>
+    <div class="expertise-grid">
+      <div class="exp-box">
+        <div class="exp-icon">⚖️</div>
+        <h4>Workers' Compensation</h4>
+        <p>Specialized PBM solutions designed for the unique requirements of workers' comp pharmacy programs.</p>
+      </div>
+      <div class="exp-box">
+        <div class="exp-icon">🏥</div>
+        <h4>Hospice Pharmacy</h4>
+        <p>End-of-life care benefit administration with the sensitivity and precision the setting demands.</p>
+      </div>
+      <div class="exp-box">
+        <div class="exp-icon">💰</div>
+        <h4>Rebate Management</h4>
+        <p>Maximizing manufacturer rebates through expert negotiation, tracking, and reconciliation.</p>
+      </div>
+      <div class="exp-box">
+        <div class="exp-icon">💊</div>
+        <h4>Claims Adjudication</h4>
+        <p>Real-time, rules-driven claims processing built for speed, accuracy, and flexibility.</p>
+      </div>
+      <div class="exp-box">
+        <div class="exp-icon">🗺️</div>
+        <h4>Plan & Network Design</h4>
+        <p>Comprehensive benefit and network architecture tailored to each client's member population.</p>
+      </div>
+      <div class="exp-box">
+        <div class="exp-icon">🎫</div>
+        <h4>Discount Card Processing</h4>
+        <p>Scalable discount card programs with real-time adjudication and nationwide network access.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content:center;">Get Started</div>
+    <h2>Ready to work with<br>the experts?</h2>
+    <p>Let's talk about how SRxS's founding team can put decades of PBM experience to work for your organization.</p>
+    <a href="/cdn-cgi/l/email-protection#ec85828a83ac9f9e949fc28f8381" class="btn-primary">Talk to an Expert →</a>
+    <a href="https://srspricing.rxlogic.com/srxs" target="_blank" rel="noopener noreferrer" class="btn-ghost">💊 Get Discount Card</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg style="height:30px;width:auto;opacity:0.55;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" width="300" height="72">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#00a882"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#162030"/>
+      <stop offset="100%" style="stop-color:#0d1720"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon: rounded square container -->
+  <rect x="2" y="4" width="64" height="64" rx="14" ry="14" fill="url(#bgGrad)" stroke="rgba(0,212,170,0.3)" stroke-width="1.2"/>
+  <!-- Top teal accent bar -->
+  <rect x="2" y="4" width="64" height="3" rx="3" fill="url(#tealGrad)"/>
+
+  <!-- Cross / pill shape in center -->
+  <rect x="18" y="28" width="32" height="10" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <rect x="29" y="17" width="10" height="32" rx="5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
+  <!-- Center glow intersection -->
+  <rect x="29" y="28" width="10" height="10" rx="2" fill="url(#tealGrad)" filter="url(#glow)"/>
+
+  <!-- Corner dots -->
+  <circle cx="9" cy="11" r="2" fill="#00d4aa" opacity="0.4"/>
+  <circle cx="59" cy="61" r="2" fill="#00d4aa" opacity="0.4"/>
+
+  <!-- Wordmark: single text element for tight, consistent spacing -->
+  <text x="82" y="37" font-family="Arial Black, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="-0.5"><tspan fill="#f0f4f8">SR</tspan><tspan fill="#00d4aa" filter="url(#glow)">x</tspan><tspan fill="#f0f4f8">S</tspan></text>
+
+  <!-- Separator -->
+  <line x1="82" y1="44" x2="174" y2="44" stroke="rgba(0,212,170,0.2)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="82" y="57" font-family="Arial, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.2" fill="rgba(240,244,248,0.38)">SIMPLIFIED RX SOLUTIONS</text>
+</svg>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#technology">Platform</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div>© 2025 SRxS. All rights reserv
+
+<!-- ── CONTACT MODAL ── -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; z-index:999; align-items:center; justify-content:center;">
+  <div id="modalBackdrop" onclick="closeModal()" style="position:absolute; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);"></div>
+  <div style="position:relative; z-index:1; background:#0f1923; border:1px solid rgba(0,212,170,0.25); border-radius:16px; padding:2.5rem; width:100%; max-width:480px; margin:1rem; box-shadow:0 40px 80px rgba(0,0,0,0.5);">
+    <div style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,#00d4aa,transparent); border-radius:16px 16px 0 0;"></div>
+    <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); color:#f0f4f8; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='rgba(0,212,170,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">&#x2715;</button>
+    <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(0,212,170,0.12); border:1px solid rgba(0,212,170,0.25); padding:0.3rem 0.9rem; border-radius:100px; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#00d4aa; margin-bottom:1.25rem;">Get In Touch</div>
+    <h3 style="font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; color:#f0f4f8; margin-bottom:0.4rem;">Talk to an Expert</h3>
+    <p style="font-size:0.83rem; color:rgba(240,244,248,0.45); margin-bottom:1.75rem; line-height:1.6;">Fill out the form below and a member of the SRxS team will be in touch shortly.</p>
+    <form id="contactForm" onsubmit="submitForm(event)" style="display:flex; flex-direction:column; gap:1rem;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div>
+          <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">Full Name *</label>
+          <input type="text" id="cf-name" required placeholder="Jane Smith" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">Phone Number</label>
+          <input type="tel" id="cf-phone" placeholder="(555) 000-0000" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+      </div>
+      <div>
+        <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">Email Address *</label>
+        <input type="email" id="cf-email" required placeholder="jane@company.com" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+      </div>
+      <div>
+        <label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(240,244,248,0.5); margin-bottom:0.4rem;">How Can We Help? *</label>
+        <textarea id="cf-message" required rows="4" placeholder="Tell us about your organization and what you're looking for..." style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#f0f4f8; outline:none; font-family:'Inter',sans-serif; resize:vertical; min-height:100px; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,212,170,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+      </div>
+      <button type="submit" id="submitBtn" style="background:#00d4aa; color:#080d14; border:none; padding:0.85rem 2rem; border-radius:8px; font-size:0.9rem; font-weight:700; cursor:pointer; font-family:'Syne',sans-serif; letter-spacing:0.02em; transition:box-shadow 0.2s, transform 0.2s;" onmouseover="this.style.boxShadow='0 0 30px rgba(0,212,170,0.4)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='none'; this.style.transform='none'">Send Message &#x2192;</button>
+    </form>
+    <div id="formSuccess" style="display:none; text-align:center; padding:2rem 0;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">&#x2705;</div>
+      <h3 style="font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:#00d4aa; margin-bottom:0.5rem;">Message Sent!</h3>
+      <p style="font-size:0.85rem; color:rgba(240,244,248,0.5); line-height:1.6;">Thank you for reaching out. A member of the SRxS team will be in touch with you shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  var modal = document.getElementById('contactModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('contactForm').style.display = 'flex';
+  document.getElementById('formSuccess').style.display = 'none';
+}
+function closeModal() {
+  document.getElementById('contactModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+function submitForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  var formData = new FormData();
+  formData.append('name',    document.getElementById('cf-name').value);
+  formData.append('email',   document.getElementById('cf-email').value);
+  formData.append('phone',   document.getElementById('cf-phone').value);
+  formData.append('message', document.getElementById('cf-message').value);
+
+  fetch('contact.php', { method: 'POST', body: formData })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        setTimeout(closeModal, 3500);
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        alert('Something went wrong: ' + data.message);
+      }
+    })
+    .catch(function() {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Network error. Please email us directly at info@srxs.com');
+    });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href="#contact"], a[href="index.html#contact"]').forEach(function(a) {
+    a.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
+  });
+  document.querySelectorAll('a[href^="mailto:info@srxs"]').forEach(function(a) {
+    a.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
+  });
+});
+</script>
+</body>
+</html>
