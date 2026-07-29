@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7KS7CNF6GP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7KS7CNF6GP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The SRxS white-label Prescription Discount Card Program — your card, your brand, our adjudication engine. Turnkey launch, claim-level reporting, and a branded member portal.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0B1220">
+<title>Discount Card Program — SRxS | Simplified RX Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-tint: #F1F7F5;
+    --surface2: #F1F7F5;
+    --border: #D9E2E0;
+    --border-strong: #cdd9d6;
+    --teal: #00D4AA;
+    --teal-deep: #00A882;
+    --teal-ink: #007a63;
+    --teal-bright: #4fe0bf;
+    --teal-soft: #e6f9f4;
+    --teal-soft2: #cbf1e8;
+    --ink: #0B1220;
+    --navy: #0B1220;
+    --navy2: #16263a;
+    --body: #1E293B;
+    --muted: #59646F;
+    --shadow-sm: 0 1px 2px rgba(13,28,36,0.04), 0 2px 8px rgba(13,28,36,0.05);
+    --shadow-md: 0 8px 24px rgba(13,28,36,0.08), 0 2px 6px rgba(13,28,36,0.04);
+    --shadow-lg: 0 24px 60px rgba(0,158,127,0.16), 0 8px 24px rgba(13,28,36,0.10);
+    --shadow-teal: 0 12px 28px rgba(0,184,148,0.28);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--body); line-height: 1.6; overflow-x: hidden; }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 5%; }
+
+  h1,h2,h3,h4 { font-family: 'Archivo', sans-serif; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 5%; background: rgba(255,255,255,0.85); backdrop-filter: blur(18px) saturate(1.6); border-bottom: 1px solid var(--border); }
+  .nav-logo svg { height: 42px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 1.9rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; color: var(--body); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal-deep); }
+  .nav-links a.active { color: var(--teal-deep); font-weight: 600; }
+  .nav-cta { background: var(--ink) !important; color: #fff !important; padding: 0.6rem 1.3rem; border-radius: 8px; font-weight: 600 !important; }
+  .nav-cta:hover { background: #10303a !important; }
+  .nav-discount { background: var(--teal-soft) !important; border: 1px solid var(--teal-soft2) !important; color: var(--teal-ink) !important; padding: 0.55rem 1.05rem; border-radius: 8px; font-weight: 600 !important; font-size: 0.8rem !important; }
+
+  /* BUTTONS */
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.92rem; padding: 0.9rem 1.9rem; border-radius: 10px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: all 0.2s; }
+  .btn-primary { background: var(--teal); color: #fff; box-shadow: var(--shadow-teal); }
+  .btn-primary:hover { background: var(--teal-deep); transform: translateY(-2px); }
+  .btn-light { background: #fff; color: var(--ink); border-color: var(--border-strong); }
+  .btn-light:hover { border-color: var(--teal); background: var(--teal-soft); transform: translateY(-2px); }
+  .btn-ondark { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.2); }
+  .btn-ondark:hover { background: rgba(255,255,255,0.14); }
+
+  /* LABEL PILL */
+  .label { display: inline-block; background: var(--teal); color: #04241d; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.34rem 0.8rem; border-radius: 4px; margin-bottom: 1.1rem; }
+  .label.on-dark { background: var(--teal-bright); color: #04241d; }
+
+  section { padding: 5rem 0; }
+  .sec-tint { background: var(--bg-tint); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  /* HERO (dark navy band) */
+  .hero { background: linear-gradient(150deg, #0b1a22 0%, #123540 60%, #0b2a2a 100%); color: #fff; padding: 8.5rem 0 4.5rem; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: -30%; right: -8%; width: 480px; height: 480px; background: radial-gradient(circle, rgba(0,184,148,0.28) 0%, transparent 65%); pointer-events: none; }
+  .hero-top { display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; position: relative; z-index: 1; }
+  .hero h1 { color: #fff; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1.25rem; }
+  .hero h1 .accent { color: var(--teal-bright); }
+  .hero p { color: rgba(255,255,255,0.75); font-size: 1.06rem; line-height: 1.75; max-width: 540px; margin-bottom: 2rem; }
+  .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  /* DISCOUNT CARD MOCKUP */
+  .rxcard { background: linear-gradient(150deg, #10303a, #0a2020); border: 1px solid rgba(0,201,163,0.3); border-radius: 18px; padding: 1.6rem; box-shadow: 0 30px 60px rgba(0,0,0,0.4); position: relative; overflow: hidden; }
+  .rxcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--teal), var(--teal-deep)); }
+  .rxcard .rc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+  .rxcard .rc-mark { font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 1.5rem; color: #fff; }
+  .rxcard .rc-mark span { color: var(--teal-bright); }
+  .rxcard .rc-type { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: right; }
+  .rxcard .rc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1rem; margin-bottom: 1.25rem; }
+  .rc-field .k { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-bright); }
+  .rc-field .v { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.95rem; color: #fff; }
+  .rxcard .rc-foot { font-size: 0.66rem; color: rgba(255,255,255,0.45); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.9rem; }
+
+  /* SECTION HEADINGS */
+  h2.sec { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; margin-bottom: 0.75rem; }
+  .sec-intro { color: var(--body); font-size: 1.02rem; max-width: 620px; line-height: 1.7; }
+
+  /* SAVINGS TABLE */
+  .save-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: start; margin-top: 2rem; }
+  .save-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .save-table th { background: var(--surface2); text-align: left; font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0.8rem 1rem; font-weight: 700; }
+  .save-table th.num, .save-table td.num { text-align: right; }
+  .save-table td { padding: 0.9rem 1rem; border-top: 1px solid var(--border); font-size: 0.9rem; }
+  .save-table .drug { font-family: 'Archivo',sans-serif; font-weight: 700; color: var(--ink); }
+  .save-table .cond { font-size: 0.76rem; color: var(--muted); }
+  .save-table .retail { color: var(--muted); text-decoration: line-through; }
+  .save-table .withcard { font-family: 'Archivo',sans-serif; font-weight: 700; color: var(--ink); }
+  .save-table th.barh { text-align: left; padding-left: 1rem; }
+  .save-table td.disc { text-align: left; padding-left: 1rem; }
+  .save-table .dbar { display: block; height: 7px; width: 110px; max-width: 70%; background: #E7EDEB; border-radius: 3px; overflow: hidden; }
+  .save-table .dbar i { display: block; height: 100%; background: var(--teal-deep); border-radius: 3px; }
+  .save-table .dpct { display: block; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 0.82rem; color: var(--ink); margin-top: 3px; }
+  .save-note { font-size: 0.72rem; color: var(--muted); line-height: 1.55; margin-top: 0.9rem; }
+
+  .household { background: linear-gradient(150deg, #0d1c24, #123540); color: #fff; border-radius: 16px; padding: 1.8rem; box-shadow: var(--shadow-lg); }
+  .household .hh-label { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-bright); margin-bottom: 1rem; }
+  .household .hh-row { display: flex; justify-content: space-between; padding: 0.5rem 0; font-size: 0.92rem; color: rgba(255,255,255,0.85); border-bottom: 1px dashed rgba(255,255,255,0.12); }
+  .household .hh-row.big { color: #fff; font-weight: 600; border-bottom: none; }
+  .household .hh-big { font-family: 'Archivo',sans-serif; font-size: 3rem; font-weight: 800; color: var(--teal-bright); line-height: 1; margin: 1.1rem 0 0.4rem; }
+  .household .hh-sub { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.55; }
+
+  /* STAT GRID */
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .stat { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow-sm); }
+  .stat .n { font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 1.9rem; color: var(--teal-deep); line-height: 1; margin-bottom: 0.5rem; }
+  .stat .d { font-size: 0.8rem; color: var(--body); line-height: 1.5; }
+
+  /* TIMELINE */
+  .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 2.5rem; position: relative; }
+  .timeline::before { content: ''; position: absolute; top: 20px; left: 10%; right: 10%; height: 2px; background: var(--teal-soft2); }
+  .tl-step { padding: 0 0.9rem; position: relative; }
+  .tl-num { width: 42px; height: 42px; border-radius: 50%; background: #fff; border: 2px solid var(--teal-soft2); color: var(--teal-deep); font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; position: relative; z-index: 1; }
+  .tl-step.hot .tl-num { background: var(--teal); border-color: var(--teal); color: #04241d; box-shadow: 0 8px 18px rgba(0,184,148,0.35); }
+  .tl-step h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .tl-step p { font-size: 0.8rem; color: var(--body); line-height: 1.55; }
+  .tl-tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep); }
+
+  /* PORTAL SECTION */
+  .portal-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3rem; align-items: center; }
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0; }
+  .checklist li { display: flex; gap: 0.7rem; font-size: 0.92rem; color: var(--ink); }
+  .checklist li::before { content: '✓'; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--teal-soft); color: var(--teal-deep); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .browser { background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-md); overflow: hidden; }
+  .browser-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.7rem 0.9rem; background: var(--surface2); border-bottom: 1px solid var(--border); }
+  .browser-bar .dot { width: 10px; height: 10px; border-radius: 50%; background: #d6e2df; }
+  .browser-url { flex: 1; margin-left: 0.6rem; background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.7rem; font-size: 0.72rem; color: var(--muted); }
+  .browser-body { padding: 1.25rem; }
+  .mini-search { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem; margin-bottom: 0.85rem; }
+  .mini-search .mrow { display: flex; gap: 0.5rem; }
+  .mini-search .field { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 7px; padding: 0.45rem 0.6rem; font-size: 0.74rem; color: var(--ink); }
+  .mini-search .field.sm { flex: 0 0 64px; }
+  .mini-search .go { background: var(--teal); color: #fff; border-radius: 7px; padding: 0.45rem 0.8rem; font-size: 0.74rem; font-weight: 600; }
+  .price-line { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.5rem; }
+  .price-line.best { border-color: var(--teal-soft2); background: var(--teal-soft); }
+  .price-line .ph { font-size: 0.8rem; font-weight: 600; color: var(--ink); }
+  .price-line .amt { font-family: 'Archivo',sans-serif; font-weight: 800; color: var(--teal-deep); }
+  .cap { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 1rem; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .shot { margin: 0; }
+  .pframe { background: var(--navy); border-radius: 12px; padding: 5px; box-shadow: var(--shadow-md); }
+  .pframe img { display: block; width: 100%; border-radius: 8px; }
+  .shot figcaption { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 0.6rem; line-height: 1.4; }
+
+  /* DASHBOARD MOCK */
+  .dash { background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-md); overflow: hidden; margin-top: 2rem; }
+  .dash-head { background: var(--navy); color: #fff; padding: 0.9rem 1.25rem; font-size: 0.78rem; letter-spacing: 0.04em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .dash-head .k { color: var(--teal-bright); font-weight: 600; }
+  .dash-body { padding: 1.5rem; }
+  .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .kpi { border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; }
+  .kpi .kl { font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+  .kpi .kv { font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 1.7rem; color: var(--ink); line-height: 1; }
+  .kpi .kd { font-size: 0.72rem; color: var(--teal-deep); font-weight: 600; margin-top: 0.35rem; }
+  .dash-split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.25rem; }
+  .mini-table { width: 100%; border-collapse: collapse; }
+  .mini-table th { text-align: left; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); }
+  .mini-table td { font-size: 0.78rem; padding: 0.5rem; border-bottom: 1px solid var(--border); color: var(--ink); }
+  .mini-table td.s { text-align: right; color: var(--teal-deep); font-weight: 700; }
+  .chart { display: flex; align-items: flex-end; gap: 5px; height: 130px; padding-top: 0.5rem; }
+  .chart .bar { flex: 1; background: linear-gradient(180deg, var(--teal), var(--teal-soft2)); border-radius: 4px 4px 0 0; }
+  .chart-x { display: flex; gap: 5px; margin-top: 0.4rem; }
+  .chart-x span { flex: 1; text-align: center; font-size: 0.56rem; color: var(--muted); }
+
+  /* COMPARE STRIP */
+  .compare { background: linear-gradient(150deg, #0d1c24, #123540); color: #fff; border-radius: 18px; padding: 2.2rem 2.4rem; box-shadow: var(--shadow-lg); display: grid; grid-template-columns: repeat(4, auto) 1fr; gap: 1.5rem 2rem; align-items: center; margin-top: 2rem; }
+  .compare .cx { text-align: center; }
+  .compare .cx .cl { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.3rem; }
+  .compare .cx .cn { font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 1.5rem; color: #fff; }
+  .compare .result { text-align: right; }
+  .compare .result .rn { font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 2.4rem; color: var(--teal-bright); line-height: 1; }
+  .compare .result .rl { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+  /* VALUE PROPS */
+  .props { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .prop { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .prop:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+  .prop .badge { width: 30px; height: 30px; border-radius: 8px; background: var(--teal-soft); color: var(--teal-deep); font-family: 'Archivo',sans-serif; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; margin-bottom: 0.9rem; }
+  .prop h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .prop p { font-size: 0.85rem; color: var(--body); line-height: 1.6; }
+
+  /* GETTING STARTED */
+  .start-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .start { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow-sm); }
+  .start .sl { font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep); font-weight: 700; margin-bottom: 0.5rem; }
+  .start .sv { font-family: 'Archivo',sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .start p { font-size: 0.82rem; color: var(--body); line-height: 1.55; }
+
+  /* CTA */
+  .cta-band { background: linear-gradient(150deg, #0d1c24, #123540 60%, #0c2a30); color: #fff; text-align: center; border-radius: 22px; padding: 3.5rem 2rem; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+  .cta-band::after { content: ''; position: absolute; top: -40%; right: -8%; width: 380px; height: 380px; background: radial-gradient(circle, rgba(0,184,148,0.3) 0%, transparent 65%); pointer-events: none; }
+  .cta-band > * { position: relative; z-index: 1; }
+  .cta-band h2 { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.7rem); margin-bottom: 0.8rem; }
+  .cta-band p { color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 1.8rem; }
+
+  /* DISCLAIMER + FOOTER */
+  .disclaimer { font-size: 0.72rem; color: var(--muted); line-height: 1.6; max-width: 900px; margin: 0 auto; text-align: center; }
+  footer { border-top: 1px solid var(--border); background: #fff; padding: 2rem 0; margin-top: 3rem; }
+  .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--muted); }
+  .foot-inner svg { height: 28px; }
+  .foot-links { display: flex; gap: 0.9rem 1.4rem; flex-wrap: wrap; justify-content: center; }
+  .foot-links a { color: var(--body); text-decoration: none; }
+  .foot-links a:hover { color: var(--teal-deep); }
+
+  @media (max-width: 960px) {
+    .hero-grid, .save-layout, .portal-grid, .dash-split { grid-template-columns: 1fr; gap: 2rem; }
+    .stat-grid, .props, .start-grid { grid-template-columns: 1fr 1fr; }
+    .timeline { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+    .timeline::before { display: none; }
+    .kpi-row { grid-template-columns: 1fr; }
+    .compare { grid-template-columns: 1fr 1fr; text-align: center; }
+    .compare .result { text-align: center; grid-column: 1 / -1; }
+    nav .nav-links li:not(.nav-cta-li) { display: none; }
+  }
+  @media (max-width: 560px) {
+    .stat-grid, .props, .start-grid, .timeline { grid-template-columns: 1fr; }
+  }
+
+  /* Products & Services dropdown */
+  .nav-dd { position: relative; }
+  .nav-dd-toggle { cursor: pointer; }
+  .nav-dd-toggle.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-caret { font-size: 0.7em; }
+  .nav-dd-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 244px; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 14px 32px rgba(13,28,36,0.14); padding: 0.4rem; list-style: none; margin: 0.5rem 0 0; z-index: 200; }
+  .nav-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -0.55rem; height: 0.55rem; }
+  .dd-sep { height: 1px; background: var(--border); margin: 0.35rem; padding: 0; }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu li { display: block; }
+  .nav-dd-menu a { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.65rem; border-radius: 7px; font-size: 0.85rem; font-weight: 500; white-space: nowrap; color: var(--body); }
+  .nav-dd-menu a:hover { background: var(--teal-soft); color: var(--teal-deep); text-decoration: none; }
+  .nav-dd-menu a.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
+  .dd-service { background: #eef3f1; color: #59646f; }
+  .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
+</style>
+</head>
+<body>
+
+<!-- LOGO SYMBOL -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00c9a3"/><stop offset="100%" stop-color="#009e7f"/></linearGradient>
+  <g id="srxs-logo">
+    <rect x="2" y="4" width="64" height="64" rx="15" fill="#f4f9f8" stroke="#d3f0e8" stroke-width="1.4"/>
+    <rect x="2" y="4" width="64" height="3.5" rx="3" fill="url(#tealGrad)"/>
+    <rect x="18" y="28" width="32" height="10" rx="5" fill="#d3f0e8"/>
+    <rect x="29" y="17" width="10" height="32" rx="5" fill="#d3f0e8"/>
+    <rect x="29" y="28" width="10" height="10" rx="2.5" fill="url(#tealGrad)"/>
+    <circle cx="9" cy="11.5" r="2" fill="#00b894" opacity="0.5"/>
+    <circle cx="59" cy="60.5" r="2" fill="#00b894" opacity="0.5"/>
+    <text x="82" y="37" font-family="Syne, Arial Black, sans-serif" font-size="27" font-weight="800" letter-spacing="-0.5"><tspan fill="#0d1c24">SR</tspan><tspan fill="#00b894">x</tspan><tspan fill="#0d1c24">S</tspan></text>
+    <line x1="82" y1="44" x2="176" y2="44" stroke="#d3f0e8" stroke-width="1"/>
+    <text x="82" y="57" font-family="Inter, Arial, sans-serif" font-size="8.5" font-weight="600" letter-spacing="3" fill="#7a8a90">SIMPLIFIED RX SOLUTIONS</text>
+  </g>
+</defs></svg>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><a href="index.html" aria-label="SRxS home"><svg viewBox="0 0 300 72" role="img" aria-label="SRxS"><use href="#srxs-logo"/></svg></a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dd">
+      <a href="services.html" class="nav-dd-toggle active">Products &amp; Services <span class="dd-caret">&#9662;</span></a>
+      <ul class="nav-dd-menu">
+        <li><a href="services.html">Overview</a></li>
+        <li><a href="discount-card.html"><span class="dd-tag dd-product">Product</span> SRxS Discount Card</a></li>
+        <li class="dd-sep" aria-hidden="true"></li>
+        <li><a href="services.html#pba"><span class="dd-tag dd-service">Service</span> Pharmacy Benefit Administration</a></li>
+        <li><a href="dcp.html" class="active"><span class="dd-tag dd-service">Service</span> White-Label Program</a></li>
+      </ul>
+    </li>
+    <li><a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li>
+    <li class="nav-cta-li"><a href="#" onclick="openModal(); return false;" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span>℞ Simplified Rx Solutions</span>
+      <span>Discount Card Program</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>Your card. Your brand.<br><span class="accent">Our adjudication engine.</span></h1>
+        <p>A turnkey prescription discount card program that launches under your name — with claims processed, priced, and tracked on the Simplified Rx Solutions PBM platform. You get the brand, the data, and the economics. We run the plumbing.</p>
+        <div class="hero-actions">
+          <a href="#" onclick="openModal(); return false;" class="btn btn-primary">Let's price out your program →</a>
+          <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn btn-ondark">See the live portal</a>
+        </div>
+      </div>
+      <div class="rxcard">
+        <div class="rc-top">
+          <div class="rc-mark">SR<span>x</span>S</div>
+          <div class="rc-type">Prescription<br>Discount Card</div>
+        </div>
+        <div class="rc-grid">
+          <div class="rc-field"><div class="k">BIN</div><div class="v">YourBIN</div></div>
+          <div class="rc-field"><div class="k">PCN</div><div class="v">YourPCN</div></div>
+          <div class="rc-field"><div class="k">GROUP</div><div class="v">YourGroup</div></div>
+          <div class="rc-field"><div class="k">MEMBER ID</div><div class="v">YourMemberID</div></div>
+        </div>
+        <div class="rc-foot">Present at any participating pharmacy. Not insurance. Pharmacist help line printed on card.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT MEMBERS SAVE -->
+<section>
+  <div class="wrap">
+    <span class="label">What members actually save</span>
+    <h2 class="sec">Real generics. Real prices. Real savings.</h2>
+    <div class="save-layout">
+      <div>
+        <table class="save-table">
+          <thead><tr><th>Medication · 30-day supply</th><th class="num">Retail</th><th class="num">With card</th><th class="barh">Discount</th></tr></thead>
+          <tbody>
+            <tr><td><div class="drug">Atorvastatin 20 mg</div><div class="cond">Cholesterol</div></td><td class="num retail">$80.33</td><td class="num withcard">$7.46</td><td class="disc"><span class="dbar"><i style="width:91%"></i></span><span class="dpct">91% off</span></td></tr>
+            <tr><td><div class="drug">Metformin ER 500 mg</div><div class="cond">Type 2 diabetes</div></td><td class="num retail">$81.00</td><td class="num withcard">$12.60</td><td class="disc"><span class="dbar"><i style="width:84%"></i></span><span class="dpct">84% off</span></td></tr>
+            <tr><td><div class="drug">Lisinopril / HCTZ</div><div class="cond">Blood pressure</div></td><td class="num retail">$55.44</td><td class="num withcard">$9.90</td><td class="disc"><span class="dbar"><i style="width:82%"></i></span><span class="dpct">82% off</span></td></tr>
+            <tr><td><div class="drug">Sertraline 50 mg</div><div class="cond">Depression &amp; anxiety</div></td><td class="num retail">$40.05</td><td class="num withcard">$7.54</td><td class="disc"><span class="dbar"><i style="width:81%"></i></span><span class="dpct">81% off</span></td></tr>
+            <tr><td><div class="drug">Amoxicillin 500 mg</div><div class="cond">Bacterial infection</div></td><td class="num retail">$26.60</td><td class="num withcard">$8.19</td><td class="disc"><span class="dbar"><i style="width:69%"></i></span><span class="dpct">69% off</span></td></tr>
+          </tbody>
+        </table>
+        <p class="save-note">National average retail prices and discount-card prices for the most commonly filled version of each drug, published by market-leading discount-card networks and accessed July 2026. Shown to illustrate the category; SRxS program pricing varies by drug, quantity, pharmacy, and market. Members always pay the lower of the program price or the pharmacy's own cash price.</p>
+      </div>
+      <div class="household">
+        <div class="hh-label">One household · three maintenance drugs</div>
+        <div class="hh-row"><span>Retail, per month</span><span>$175.82</span></div>
+        <div class="hh-row"><span>With the card</span><span>$24.90</span></div>
+        <div class="hh-row big"><span>Saved per month</span><span>$150.92</span></div>
+        <div class="hh-big">$1,811</div>
+        <div class="hh-sub">saved in a single year — on three ordinary generics, for one household, at no cost to them.</div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="n">28%</div><div class="d">of U.S. adults have skipped a prescription because of cost (KFF, 2024)</div></div>
+      <div class="stat"><div class="n">40–80%</div><div class="d">typical discount off retail cash price on generics; 5–30% on brand</div></div>
+      <div class="stat"><div class="n">70k / 35k</div><div class="d">pharmacies in the market-leading discount-card networks — the benchmark for reach</div></div>
+      <div class="stat"><div class="n">60,000+</div><div class="d">retail pharmacies in the SRxS network, including all major national chains</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW A CLAIM MOVES -->
+<section class="sec-tint">
+  <div class="wrap">
+    <span class="label">How a claim moves</span>
+    <h2 class="sec">From counter to reporting in under a second.</h2>
+    <div class="timeline">
+      <div class="tl-step"><div class="tl-num">01</div><h4>Member presents your card</h4><p>Printed, digital, or in a phone wallet. No enrollment, no eligibility file, no income test.</p></div>
+      <div class="tl-step"><div class="tl-num">02</div><h4>Pharmacy submits at the counter</h4><p>The claim routes over the national switch to your BIN/PCN — yours or ours — as a cash transaction.</p></div>
+      <div class="tl-step hot"><div class="tl-num">03</div><div class="tl-tag">SRxS</div><h4>We adjudicate in real time</h4><p>Our platform prices the claim against your contracted network rates and responds in under a second.</p></div>
+      <div class="tl-step"><div class="tl-num">04</div><h4>Member pays the discounted price</h4><p>They pay at the counter. Nothing to file, nothing to reimburse, no deductible to meet.</p></div>
+      <div class="tl-step"><div class="tl-num">05</div><h4>Everything lands in reporting</h4><p>Drug, pharmacy, quantity, savings, and fee — captured claim by claim, visible to you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHITE-LABEL PORTAL -->
+<section>
+  <div class="wrap">
+    <span class="label">The white-label member portal</span>
+    <h2 class="sec">It looks like your program, because it is your program.</h2>
+    <p class="sec-intro">Members search a drug and see live prices at pharmacies near them, then pull up their card on the spot — under your logo, your colors, and your web address. Nothing on the page points back to us.</p>
+    <div class="portal-grid" style="margin-top:2rem;">
+      <div>
+        <ul class="checklist">
+          <li>Your logo, palette, and domain throughout</li>
+          <li>Price comparison across nearby participating pharmacies</li>
+          <li>Instant card issuance — no account or app required</li>
+          <li>Card delivered by print, text, or email</li>
+          <li>Embeddable in an existing member or patient portal</li>
+        </ul>
+        <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn btn-light">Open the live portal →</a>
+      </div>
+      <div>
+        <div class="shots">
+          <figure class="shot">
+            <div class="pframe"><img src="assets/portal-search.jpg" alt="SRxS member portal — search a drug, strength, quantity and ZIP" loading="lazy"></div>
+            <figcaption>Search a drug, strength, quantity, and ZIP</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="pframe"><img src="assets/portal-results.jpg" alt="SRxS member portal — live prices ranked by pharmacy" loading="lazy"></div>
+            <figcaption>Live prices ranked by pharmacy, with savings shown</figcaption>
+          </figure>
+        </div>
+        <p class="cap" style="margin-top:1rem;">Live screens from pricing.srxspbm.com — yours is the same engine, wearing your brand and your domain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTING -->
+<section class="sec-tint">
+  <div class="wrap">
+    <span class="label">Reporting</span>
+    <h2 class="sec">The reporting you never get from a national card.</h2>
+    <div class="dash">
+      <div class="dash-head"><span><span class="k">SRxS Program Dashboard</span> · Your Organization</span><span>Month to date</span></div>
+      <div class="dash-body">
+        <div class="kpi-row">
+          <div class="kpi"><div class="kl">Claims MTD</div><div class="kv">1,284</div><div class="kd">▲ 11% vs. last month</div></div>
+          <div class="kpi"><div class="kl">Member savings</div><div class="kv">$36,417</div><div class="kd">▲ 14% vs. last month</div></div>
+          <div class="kpi"><div class="kl">Avg. saved / fill</div><div class="kv">$28.35</div><div class="kd" style="color:var(--muted);font-weight:500;">1,041 unique members</div></div>
+        </div>
+        <div class="dash-split">
+          <table class="mini-table">
+            <thead><tr><th>Date</th><th>Drug</th><th>Pharmacy</th><th style="text-align:right;">Saved</th></tr></thead>
+            <tbody>
+              <tr><td>07/24</td><td>Atorvastatin 20 mg</td><td>Walmart #1842</td><td class="s">$72.87</td></tr>
+              <tr><td>07/24</td><td>Sertraline 50 mg</td><td>CVS #4410</td><td class="s">$32.51</td></tr>
+              <tr><td>07/23</td><td>Metformin ER 500 mg</td><td>Publix #0733</td><td class="s">$68.40</td></tr>
+              <tr><td>07/23</td><td>Amoxicillin 500 mg</td><td>Hometown Drug</td><td class="s">$18.41</td></tr>
+            </tbody>
+          </table>
+          <div>
+            <div class="kl" style="font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Member savings by month</div>
+            <div class="chart">
+              <div class="bar" style="height:38%"></div><div class="bar" style="height:46%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:60%"></div><div class="bar" style="height:57%"></div><div class="bar" style="height:66%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:78%"></div><div class="bar" style="height:83%"></div><div class="bar" style="height:88%"></div><div class="bar" style="height:94%"></div><div class="bar" style="height:100%"></div>
+            </div>
+            <div class="chart-x"><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM VS NATIONAL -->
+<section>
+  <div class="wrap">
+    <span class="label">Custom program vs. a national card</span>
+    <h2 class="sec">A card with your name on it pays your members back.</h2>
+    <div class="compare">
+      <div class="cx"><div class="cl">Members</div><div class="cn">2,000</div></div>
+      <div class="cx"><div class="cl">Use the card</div><div class="cn">12%</div></div>
+      <div class="cx"><div class="cl">Fills / year</div><div class="cn">6</div></div>
+      <div class="cx"><div class="cl">Avg. saved / fill</div><div class="cn">$28</div></div>
+      <div class="result"><div class="rn">$40,320</div><div class="rl">Returned to your members annually</div></div>
+    </div>
+
+    <div class="props">
+      <div class="prop"><div class="badge">A</div><h4>You own the brand moment</h4><p>Every search and every fill reinforces your name, not a third party's app.</p></div>
+      <div class="prop"><div class="badge">B</div><h4>You own the data</h4><p>National cards give you nothing back. You get claim-level utilization you can act on.</p></div>
+      <div class="prop"><div class="badge">C</div><h4>You own the economics</h4><p>Per-claim administrative fees flow back to your program instead of to a national brand.</p></div>
+      <div class="prop"><div class="badge">D</div><h4>You control the pricing</h4><p>Set and adjust margin by drug or class. Sharpen prices on what your population actually fills.</p></div>
+      <div class="prop"><div class="badge">E</div><h4>You keep members close</h4><p>A card with your name on it is a reason to come back, and a measurable retention asset.</p></div>
+      <div class="prop"><div class="badge">F</div><h4>One accountable partner</h4><p>Network, adjudication, portal, reporting, and support from one team that answers the phone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING STARTED -->
+<section class="sec-tint">
+  <div class="wrap">
+    <span class="label">Getting started</span>
+    <h2 class="sec">Low cost in. No long-term contract.</h2>
+    <div class="start-grid">
+      <div class="start"><div class="sl">Cost to launch</div><div class="sv">Low, one-time</div><p>A single setup fee covers card design, BIN/PCN configuration, and portal branding.</p></div>
+      <div class="start"><div class="sl">Commitment</div><div class="sv">Month-to-month</div><p>No multi-year term, no minimum enrollment, no termination fee.</p></div>
+      <div class="start"><div class="sl">Your BIN or ours</div><div class="sv">Both supported</div><p>Route on your existing BIN/PCN, or use ours. Multiple BINs supported across your book.</p></div>
+      <div class="start"><div class="sl">Time to launch</div><div class="sv">~30 days</div><p>From signature to live cards and a live portal.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Let's price out your program.</h2>
+      <p>Tell us about your members and we'll model the savings, the branding, and the economics — no commitment.</p>
+      <a href="#" onclick="openModal(); return false;" class="btn btn-primary">Talk to an Expert →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER + FOOTER -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="disclaimer">Simplified Rx Solutions, LLC. This is a prescription discount program. It is not insurance and is not a substitute for insurance. Discounts vary by drug, quantity, and pharmacy, cannot be combined with insurance benefits, and do not apply toward a deductible. Pharmacy participation and pricing are subject to change without notice. Portal and dashboard images are illustrative.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <svg viewBox="0 0 300 72" role="img" aria-label="SRxS"><use href="#srxs-logo"/></svg>
+    <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Products &amp; Services</a>
+    <a href="#" onclick="openModal(); return false;">Contact Us</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+    <div>© 2026 SRxS. Discount only — not insurance.</div>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; z-index:999; align-items:center; justify-content:center;">
+  <div onclick="closeModal()" style="position:absolute; inset:0; background:rgba(13,28,36,0.45); backdrop-filter:blur(6px);"></div>
+  <div style="position:relative; z-index:1; background:#fff; border:1px solid #e5ecea; border-radius:20px; padding:2.5rem; width:100%; max-width:480px; margin:1rem; box-shadow:0 40px 90px rgba(13,28,36,0.25);">
+    <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#00c9a3,#009e7f); border-radius:20px 20px 0 0;"></div>
+    <button onclick="closeModal()" aria-label="Close" style="position:absolute; top:1rem; right:1rem; background:#f4f9f8; border:1px solid #e5ecea; color:#47585f; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1rem;">&#x2715;</button>
+    <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#e6f7f2; border:1px solid #d3f0e8; padding:0.3rem 0.9rem; border-radius:100px; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#007a63; margin-bottom:1.25rem;">Get In Touch</div>
+    <h3 style="font-family:'Archivo',sans-serif; font-size:1.5rem; font-weight:700; color:#0d1c24; margin-bottom:0.4rem;">Price out your program</h3>
+    <p style="font-size:0.85rem; color:#7a8a90; margin-bottom:1.75rem; line-height:1.6;">Fill out the form below and a member of the SRxS team will be in touch shortly.</p>
+    <form id="contactForm" onsubmit="submitForm(event)" style="display:flex; flex-direction:column; gap:1rem;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div><label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">Full Name *</label>
+          <input type="text" id="cf-name" required placeholder="Jane Smith" style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'IBM Plex Sans',sans-serif;"></div>
+        <div><label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">Phone Number</label>
+          <input type="tel" id="cf-phone" placeholder="(555) 000-0000" style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'IBM Plex Sans',sans-serif;"></div>
+      </div>
+      <div><label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">Email Address *</label>
+        <input type="email" id="cf-email" required placeholder="jane@company.com" style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'IBM Plex Sans',sans-serif;"></div>
+      <div><label style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">Tell us about your organization *</label>
+        <textarea id="cf-message" required rows="4" placeholder="Members, current card (if any), and what you're looking for..." style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'IBM Plex Sans',sans-serif; resize:vertical; min-height:100px;"></textarea></div>
+      <button type="submit" id="submitBtn" style="background:#00b894; color:#fff; border:none; padding:0.85rem 2rem; border-radius:10px; font-size:0.9rem; font-weight:700; cursor:pointer; font-family:'Archivo',sans-serif;">Send Message &#x2192;</button>
+    </form>
+    <div id="formSuccess" style="display:none; text-align:center; padding:2rem 0;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">&#x2705;</div>
+      <h3 style="font-family:'Archivo',sans-serif; font-size:1.2rem; font-weight:700; color:#009e7f; margin-bottom:0.5rem;">Message Sent!</h3>
+      <p style="font-size:0.85rem; color:#7a8a90; line-height:1.6;">Thank you for reaching out. A member of the SRxS team will be in touch shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('contactModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('contactForm').style.display = 'flex';
+  document.getElementById('formSuccess').style.display = 'none';
+  var btn = document.getElementById('submitBtn'); btn.disabled = false; btn.textContent = 'Send Message →';
+}
+function closeModal() { document.getElementById('contactModal').style.display = 'none'; document.body.style.overflow = ''; }
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+function submitForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  var fd = new FormData();
+  fd.append('name', document.getElementById('cf-name').value);
+  fd.append('email', document.getElementById('cf-email').value);
+  fd.append('phone', document.getElementById('cf-phone').value);
+  fd.append('message', document.getElementById('cf-message').value);
+  fetch('contact.php', { method: 'POST', body: fd })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (data.success) {
+        document.getElementById('contactForm').reset();
+        btn.textContent = 'Send Message →'; btn.disabled = false;
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        setTimeout(closeModal, 3500);
+      } else { btn.textContent = 'Send Message →'; btn.disabled = false; alert('Something went wrong: ' + data.message); }
+    })
+    .catch(function(){ btn.textContent = 'Send Message →'; btn.disabled = false; alert('Network error. Please email us directly at info@simplifiedrxsolutions.com'); });
+}
+</script>
+</body>
+</html>

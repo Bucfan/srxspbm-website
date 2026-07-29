@@ -13,10 +13,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="SRxS delivers modern, enterprise-grade pharmacy benefit administration technology — fully customizable, scalable, and built for health plans, employers, and TPAs.">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#ffffff">
 <title>SRxS — Simplified RX Solutions</title>
@@ -320,6 +320,7 @@
     padding: 1.6rem;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   }
+  a.svc-card { text-decoration: none; color: inherit; display: block; }
   .svc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
   .svc-card:hover .svc-icon { background: var(--teal); color: #fff; transform: scale(1.05); }
   .svc-icon {
@@ -420,7 +421,7 @@
     font-size: 0.82rem; color: var(--muted);
   }
   .footer-logo svg { height: 30px; width: auto; display: block; }
-  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links { display: flex; gap: 1rem 1.5rem; flex-wrap: wrap; justify-content: center; }
   .footer-links a { color: var(--body); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--teal-deep); }
 
@@ -449,6 +450,23 @@
     .about-visual { display: none; }
     .cta-inner { padding: 3rem 1.5rem; }
   }
+
+  /* Products & Services dropdown */
+  .nav-dd { position: relative; }
+  .nav-dd-toggle { cursor: pointer; }
+  .nav-dd-toggle.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-caret { font-size: 0.7em; }
+  .nav-dd-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 244px; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 14px 32px rgba(13,28,36,0.14); padding: 0.4rem; list-style: none; margin: 0.5rem 0 0; z-index: 200; }
+  .nav-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -0.55rem; height: 0.55rem; }
+  .dd-sep { height: 1px; background: var(--border); margin: 0.35rem; padding: 0; }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu li { display: block; }
+  .nav-dd-menu a { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.65rem; border-radius: 7px; font-size: 0.85rem; font-weight: 500; white-space: nowrap; color: var(--body); }
+  .nav-dd-menu a:hover { background: var(--teal-soft); color: var(--teal-deep); text-decoration: none; }
+  .nav-dd-menu a.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
+  .dd-service { background: #eef3f1; color: #59646f; }
+  .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
 </style>
 </head>
 <body>
@@ -487,9 +505,18 @@
   </div>
 
   <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="discount-card.html">Discount Card Programs</a></li>
+    <li class="nav-dd">
+      <a href="services.html" class="nav-dd-toggle">Products &amp; Services <span class="dd-caret">&#9662;</span></a>
+      <ul class="nav-dd-menu">
+        <li><a href="services.html">Overview</a></li>
+        <li><a href="discount-card.html"><span class="dd-tag dd-product">Product</span> SRxS Discount Card</a></li>
+        <li class="dd-sep" aria-hidden="true"></li>
+        <li><a href="services.html#pba"><span class="dd-tag dd-service">Service</span> Pharmacy Benefit Administration</a></li>
+        <li><a href="dcp.html"><span class="dd-tag dd-service">Service</span> White-Label Program</a></li>
+      </ul>
+    </li>
     <li><a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li>
     <li class="nav-cta-li"><a href="#" onclick="openModal(); return false;" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -508,7 +535,7 @@
       SRxS delivers modern, enterprise-grade pharmacy benefit administration technology — fully customizable, scalable, and built for the evolving needs of health plans, employers, and TPAs.
     </p>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary">Explore Services →</a>
+      <a href="#services" class="btn-primary">Explore Products &amp; Services →</a>
       <a href="#contact" class="btn-ghost">Talk to an Expert</a>
       <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-discount">💊 Get Pharmacy Discount Card</a>
     </div>
@@ -576,66 +603,54 @@
   </div>
 
   <div class="services-grid">
-    <div class="svc-card">
+    <a class="svc-card" href="services.html#adjudication">
       <div class="svc-icon">💊</div>
       <h3>Claims Adjudication</h3>
-      <p>Fully customizable platform applying virtually any business rule in real time.</p>
-    </div>
-    <div class="svc-card">
+      <p>Fully customizable platform applying virtually any business rule in real time.</p></a>
+    <a class="svc-card" href="services.html#rebates">
       <div class="svc-icon">💰</div>
       <h3>Rebate Administration</h3>
-      <p>End-to-end rebate management maximizing savings and ensuring accuracy.</p>
-    </div>
-    <div class="svc-card">
+      <p>End-to-end rebate management maximizing savings and ensuring accuracy.</p></a>
+    <a class="svc-card" href="services.html#discount">
       <div class="svc-icon">🏷️</div>
       <h3>Pharmacy Discount Card Programs</h3>
-      <p>Robust card infrastructure built for scale, speed, and member convenience.</p>
-    </div>
-    <div class="svc-card">
+      <p>Robust card infrastructure built for scale, speed, and member convenience.</p></a>
+    <a class="svc-card" href="services.html#network">
       <div class="svc-icon">🏥</div>
       <h3>Nationwide Pharmacy Network Rental</h3>
-      <p>Broad network access ensuring members can fill prescriptions anywhere.</p>
-    </div>
-    <div class="svc-card">
+      <p>Broad network access ensuring members can fill prescriptions anywhere.</p></a>
+    <a class="svc-card" href="services.html#adjudication">
       <div class="svc-icon">💳</div>
       <h3>Customized Payment Administration</h3>
-      <p>Tailored pharmacy payment workflows reducing burden and improving accuracy.</p>
-    </div>
-    <div class="svc-card">
+      <p>Tailored pharmacy payment workflows reducing burden and improving accuracy.</p></a>
+    <a class="svc-card" href="services.html#network">
       <div class="svc-icon">🧾</div>
       <h3>Tailored Invoicing Services</h3>
-      <p>Flexible invoicing built around client-specific billing requirements.</p>
-    </div>
-    <div class="svc-card">
+      <p>Flexible invoicing built around client-specific billing requirements.</p></a>
+    <a class="svc-card" href="services.html#formulary">
       <div class="svc-icon">📋</div>
       <h3>Formulary Management</h3>
-      <p>Dynamic tools keeping drug lists current, compliant, and cost-optimized.</p>
-    </div>
-    <div class="svc-card">
+      <p>Dynamic tools keeping drug lists current, compliant, and cost-optimized.</p></a>
+    <a class="svc-card" href="services.html#formulary">
       <div class="svc-icon">⚙️</div>
       <h3>Plan &amp; Benefit Design Management</h3>
-      <p>Configurable capabilities supporting any benefit structure or program type.</p>
-    </div>
-    <div class="svc-card">
+      <p>Configurable capabilities supporting any benefit structure or program type.</p></a>
+    <a class="svc-card" href="services.html#data">
       <div class="svc-icon">📊</div>
       <h3>Advanced Data Reporting &amp; Analytics</h3>
-      <p>Insightful dashboards driving informed decisions and demonstrating value.</p>
-    </div>
-    <div class="svc-card">
+      <p>Insightful dashboards driving informed decisions and demonstrating value.</p></a>
+    <a class="svc-card" href="services.html#data">
       <div class="svc-icon">🔄</div>
       <h3>Automated Data Transformation Toolkit</h3>
-      <p>Streamline data ingestion from any source without manual intervention.</p>
-    </div>
-    <div class="svc-card">
+      <p>Streamline data ingestion from any source without manual intervention.</p></a>
+    <a class="svc-card" href="services.html#data">
       <div class="svc-icon">🔌</div>
       <h3>Real-Time Data Access via API Library</h3>
-      <p>Live access to claims, member, and benefit data through a comprehensive API.</p>
-    </div>
-    <div class="svc-card">
+      <p>Live access to claims, member, and benefit data through a comprehensive API.</p></a>
+    <a class="svc-card" href="services.html#discount">
       <div class="svc-icon">🎫</div>
       <h3>Copay &amp; Coupon Card Assistance</h3>
-      <p>Pharmacy coupon and copay assistance management reducing patient costs.</p>
-    </div>
+      <p>Pharmacy coupon and copay assistance management reducing patient costs.</p></a>
   </div>
 </section>
 
@@ -709,12 +724,14 @@
     <svg viewBox="0 0 300 72" role="img" aria-label="SRxS"><use href="#srxs-logo"/></svg>
   </div>
   <div class="footer-links">
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="#services">Services</a>
-    <a href="#technology">Platform</a>
-    <a href="#" onclick="openModal(); return false;">Contact</a>
+    <a href="services.html">Products &amp; Services</a>
+    <a href="#" onclick="openModal(); return false;">Contact Us</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
-  <div>© 2025 SRxS. All rights reserved.</div>
+  <div>© 2026 SRxS. All rights reserved.</div>
 </footer>
 
 <!-- ── CONTACT MODAL ── -->

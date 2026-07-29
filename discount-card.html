@@ -12,14 +12,14 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Launch a fully branded, white-label pharmacy discount card program with SRxS — backed by a nationwide network and real-time adjudication. Or try the free SRxS discount card today.">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta name="description" content="The free SRxS Discount Card gets you discounted cash prices on prescriptions at 60,000+ pharmacies nationwide — no insurance, no enrollment, no cost.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#ffffff">
-<title>Discount Card Programs — SRxS | Simplified RX Solutions</title>
+<title>SRxS Discount Card — Free Prescription Savings | Simplified RX Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -166,7 +166,7 @@
   /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 2.4rem 5%; max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; font-size: 0.82rem; color: var(--muted); position: relative; z-index: 1; }
   .footer-logo svg { height: 30px; width: auto; display: block; }
-  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links { display: flex; gap: 1rem 1.5rem; flex-wrap: wrap; justify-content: center; }
   .footer-links a { color: var(--body); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--teal-deep); }
 
@@ -185,6 +185,23 @@
     .hiw-steps { grid-template-columns: 1fr; }
     .highlight-strip { flex-direction: column; gap: 1rem; padding: 1.75rem; text-align: center; }
   }
+
+  /* Products & Services dropdown */
+  .nav-dd { position: relative; }
+  .nav-dd-toggle { cursor: pointer; }
+  .nav-dd-toggle.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-caret { font-size: 0.7em; }
+  .nav-dd-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 244px; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 14px 32px rgba(13,28,36,0.14); padding: 0.4rem; list-style: none; margin: 0.5rem 0 0; z-index: 200; }
+  .nav-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -0.55rem; height: 0.55rem; }
+  .dd-sep { height: 1px; background: var(--border); margin: 0.35rem; padding: 0; }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu li { display: block; }
+  .nav-dd-menu a { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.65rem; border-radius: 7px; font-size: 0.85rem; font-weight: 500; white-space: nowrap; color: var(--body); }
+  .nav-dd-menu a:hover { background: var(--teal-soft); color: var(--teal-deep); text-decoration: none; }
+  .nav-dd-menu a.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
+  .dd-service { background: #eef3f1; color: #59646f; }
+  .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
 </style>
 </head>
 <body>
@@ -219,8 +236,16 @@
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="discount-card.html" class="active">Discount Card</a></li>
+    <li class="nav-dd">
+      <a href="services.html" class="nav-dd-toggle active">Products &amp; Services <span class="dd-caret">&#9662;</span></a>
+      <ul class="nav-dd-menu">
+        <li><a href="services.html">Overview</a></li>
+        <li><a href="discount-card.html" class="active"><span class="dd-tag dd-product">Product</span> SRxS Discount Card</a></li>
+        <li class="dd-sep" aria-hidden="true"></li>
+        <li><a href="services.html#pba"><span class="dd-tag dd-service">Service</span> Pharmacy Benefit Administration</a></li>
+        <li><a href="dcp.html"><span class="dd-tag dd-service">Service</span> White-Label Program</a></li>
+      </ul>
+    </li>
     <li><a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li>
     <li class="nav-cta-li"><a href="#" onclick="openModal(); return false;" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -230,122 +255,14 @@
 <section class="page-hero">
   <div class="hero-grid"></div>
   <div class="page-hero-content">
-    <div class="hero-badge">Pharmacy Discount Card Programs</div>
-    <h1>Your Brand.<br><span class="accent">Our Platform.</span> Real Savings.</h1>
+    <div class="hero-badge">SRxS Discount Card &middot; Free to use</div>
+    <h1>Prescription savings,<br><span class="accent">right at the counter.</span></h1>
     <p class="hero-sub">
-      SRxS enables organizations to launch fully branded, white-label pharmacy discount card programs — backed by our nationwide network and real-time adjudication platform. No infrastructure investment required.
+      The SRxS Discount Card gets you discounted cash prices on your medications at 60,000+ pharmacies nationwide &mdash; no insurance, no enrollment, no cost. Just show your card and save.
     </p>
     <div class="hero-actions">
-      <a href="#white-label" class="btn-primary">Build Your Program →</a>
-      <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-discount">💊 Try Our Discount Card</a>
-    </div>
-  </div>
-</section>
-
-<!-- INTRO SPLIT -->
-<section class="intro-section" id="overview">
-  <div>
-    <div class="section-label">What We Offer</div>
-    <h2>Pharmacy Savings, Powered by SRxS</h2>
-    <p class="body-text" style="margin-top:1rem;">
-      Prescription costs remain one of the biggest barriers to medication adherence in the United States. SRxS bridges that gap by providing organizations — health plans, employers, brokers, TPAs, and associations — with the tools to offer their members instant savings at the pharmacy counter.
-    </p>
-    <p class="body-text">
-      Our discount card platform is built on a robust, real-time adjudication engine connected to a nationwide pharmacy network. Members present their card at any participating pharmacy and receive negotiated pricing instantly — no insurance required, no claims to file.
-    </p>
-    <p class="body-text">
-      Whether you want to launch your own custom-branded program or point your members to the SRxS card directly, we have a solution ready for you.
-    </p>
-  </div>
-  <div class="intro-visual">
-    <div class="mock-card">
-      <div class="mock-card-chip"></div>
-      <div class="mock-card-name">Your Organization Name</div>
-      <div class="mock-card-sub">Pharmacy Discount Card · Powered by SRxS</div>
-      <div class="mock-card-rx">Rx</div>
-    </div>
-    <div class="mock-savings">
-      <div class="mock-saving-pill">
-        <div class="mock-saving-val">80%</div>
-        <div class="mock-saving-lbl">Avg Savings</div>
-      </div>
-      <div class="mock-saving-pill">
-        <div class="mock-saving-val">60K+</div>
-        <div class="mock-saving-lbl">Pharmacies</div>
-      </div>
-      <div class="mock-saving-pill">
-        <div class="mock-saving-val">Free</div>
-        <div class="mock-saving-lbl">To Members</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHITE LABEL -->
-<section class="wl-section" id="white-label">
-  <div class="wl-inner">
-    <div class="wl-header">
-      <div class="section-label">White Label Programs</div>
-      <h2>Launch Your Own Branded Discount Card Program</h2>
-      <p>
-        SRxS gives your organization everything needed to offer a fully custom-branded pharmacy discount card — from card design and member enrollment to real-time adjudication and reporting. Your brand. Our infrastructure.
-      </p>
-    </div>
-
-    <div class="wl-grid">
-      <div class="wl-card">
-        <div class="wl-icon">🎨</div>
-        <h3>Fully Custom Branded</h3>
-        <p>Your logo, your colors, your name on every card — physical and digital. Members see your brand, not ours. We power everything behind the scenes.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">🏥</div>
-        <h3>Nationwide Network Access</h3>
-        <p>Instant access to negotiated pricing at 60,000+ retail pharmacies nationwide, including major chains and independent pharmacies — no network buildout required.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">⚡</div>
-        <h3>Real-Time Adjudication</h3>
-        <p>Savings are applied instantly at the point of sale. Members present their card and pay the discounted price — no reimbursements, no paperwork, no delays.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">📱</div>
-        <h3>Digital &amp; Physical Cards</h3>
-        <p>Offer members both digital cards (via app, email, or SMS) and traditional physical cards. Flexible delivery options to match your member communication strategy.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">📊</div>
-        <h3>Utilization Reporting</h3>
-        <p>Access detailed reporting on member utilization, savings achieved, pharmacy locations, and drug categories — giving you full visibility into program performance.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">💰</div>
-        <h3>Revenue Share Opportunities</h3>
-        <p>White-label partners can participate in revenue share arrangements, creating an opportunity to generate income while delivering real value to their members.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">🔌</div>
-        <h3>API Integration Ready</h3>
-        <p>Seamlessly embed the discount card program into your existing member portal, app, or website via our comprehensive API library — no separate platform to manage.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">🛡️</div>
-        <h3>HIPAA Compliant &amp; Secure</h3>
-        <p>All member data is handled with enterprise-grade security and full HIPAA compliance — protecting your members and your organization at every step.</p>
-      </div>
-      <div class="wl-card">
-        <div class="wl-icon">🚀</div>
-        <h3>Fast Launch Timeline</h3>
-        <p>Get your program live quickly. Our streamlined onboarding process means you can go from contract to active card program in a matter of weeks, not months.</p>
-      </div>
-    </div>
-
-    <div class="highlight-strip">
-      <div class="hs-icon">🤝</div>
-      <div>
-        <h3>Who Is This For?</h3>
-        <p>Our white-label program is ideal for health plans, employer groups, insurance brokers, TPAs, associations, worker's compensation carriers, hospice organizations, and any entity looking to provide prescription savings as a value-added benefit to their members or customers — without building the infrastructure themselves.</p>
-      </div>
+      <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-discount">💊 Get your free card</a>
+      <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-ghost">Check a drug price</a>
     </div>
   </div>
 </section>
@@ -354,51 +271,95 @@
 <section>
   <div class="hiw-section">
     <div class="hiw-header">
-      <div class="section-label">How It Works</div>
-      <h2>From Setup to Savings in Four Steps</h2>
-      <p>Launching a white-label discount card program with SRxS is straightforward. Here's how we get you from concept to live program.</p>
+      <div class="section-label" style="justify-content:center;">How it works</div>
+      <h2>Three steps to a lower price</h2>
+      <p>No account, no paperwork, no waiting. Get your card and start saving on your very next fill.</p>
     </div>
     <div class="hiw-steps">
       <div class="hiw-step">
         <div class="step-num">1</div>
-        <h3>Consult &amp; Design</h3>
-        <p>We work with you to understand your member population, branding requirements, and program goals. Card design and program parameters are finalized together.</p>
+        <h3>Get your card</h3>
+        <p>Pull up your free card at pricing.srxspbm.com &mdash; print it, or save it to your phone by text or email.</p>
       </div>
       <div class="hiw-step">
         <div class="step-num">2</div>
-        <h3>Configure &amp; Integrate</h3>
-        <p>SRxS configures your custom program on our platform. API integrations or standalone card delivery options are set up based on your technical environment.</p>
+        <h3>Show it at the pharmacy</h3>
+        <p>Hand the card to the pharmacist when you fill a prescription. They enter the BIN, PCN, and Group.</p>
       </div>
       <div class="hiw-step">
         <div class="step-num">3</div>
-        <h3>Launch &amp; Distribute</h3>
-        <p>Cards are issued digitally and/or physically to your members. Your branded program goes live across our nationwide pharmacy network immediately.</p>
-      </div>
-      <div class="hiw-step">
-        <div class="step-num">4</div>
-        <h3>Monitor &amp; Optimize</h3>
-        <p>Access real-time reporting on utilization and savings. Our team provides ongoing support to help you grow member engagement and maximize program value.</p>
+        <h3>Pay the discounted price</h3>
+        <p>The SRxS rate is applied on the spot. Nothing to file, nothing to reimburse &mdash; you just pay less.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OUR OWN CARD -->
+<!-- BENEFITS -->
+<section class="wl-section">
+  <div class="wl-inner">
+    <div class="wl-header">
+      <div class="section-label" style="justify-content:center;">Why members use it</div>
+      <h2>Free, simple, and it works almost everywhere</h2>
+      <p>One card covers your whole household and every pharmacy in the network.</p>
+    </div>
+    <div class="wl-grid">
+      <div class="wl-card">
+        <div class="wl-icon">&#128181;</div>
+        <h3>Up to 80% off generics</h3>
+        <p>Pre-negotiated cash pricing on the medications people fill most, with meaningful savings on brand drugs too.</p>
+      </div>
+      <div class="wl-card">
+        <div class="wl-icon">&#127973;</div>
+        <h3>60,000+ pharmacies</h3>
+        <p>Accepted at major chains &mdash; CVS, Walgreens, Walmart, Kroger, Rite Aid &mdash; and thousands of independents.</p>
+      </div>
+      <div class="wl-card">
+        <div class="wl-icon">&#127881;</div>
+        <h3>Always free</h3>
+        <p>No fees, no membership, no subscription. The card costs nothing to get and nothing to use.</p>
+      </div>
+      <div class="wl-card">
+        <div class="wl-icon">&#129534;</div>
+        <h3>No insurance required</h3>
+        <p>Use it instead of insurance &mdash; great if you're uninsured, or whenever the discount beats your copay.</p>
+      </div>
+      <div class="wl-card">
+        <div class="wl-icon">&#128106;</div>
+        <h3>Covers the whole family</h3>
+        <p>One card works for everyone in your household. Keep it handy for every prescription you fill.</p>
+      </div>
+      <div class="wl-card">
+        <div class="wl-icon">&#9854;&#65039;</div>
+        <h3>No expiration</h3>
+        <p>Get it once and keep it. Reuse the same card every time you pick up a prescription.</p>
+      </div>
+    </div>
+
+    <div class="highlight-strip">
+      <div class="hs-icon">&#128161;</div>
+      <div>
+        <h3>You always pay the lower price</h3>
+        <p>Have insurance? Keep it. Show the SRxS card only when its discounted cash price is lower than your copay &mdash; you'll never pay more by having it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE CARD -->
 <section class="own-card-section" id="srxs-card">
   <div class="own-inner">
     <div>
-      <div class="section-label">The SRxS Discount Card</div>
-      <h2>Try Our Own Card — Available Right Now</h2>
-      <p class="body-text" style="margin-top:1rem;">
-        In addition to powering white-label programs for our partners, SRxS offers its own pharmacy discount card — available to anyone, at no cost. No insurance required, no enrollment fees, no expiration.
+      <div class="section-label">Your card</div>
+      <h2>Get the SRxS Discount Card &mdash; free, right now</h2>
+      <p class="body-text">
+        No insurance required, no enrollment fees, no expiration. Present the SRxS Discount Card at any participating pharmacy and receive instant savings on your prescriptions.
       </p>
       <p class="body-text">
-        Simply present the SRxS discount card at any participating pharmacy and receive instant savings on your prescriptions. Accepted at over 60,000 pharmacies nationwide including CVS, Walgreens, Walmart, Kroger, Rite Aid, and thousands of independent pharmacies.
+        Accepted at over 60,000 pharmacies nationwide including CVS, Walgreens, Walmart, Kroger, Rite Aid, and thousands of independent pharmacies.
       </p>
-      <p class="body-text">
-        It's free to use — and you start saving immediately.
-      </p>
-      <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-discount" style="margin-top:0.5rem;">💊 Get Your Free SRxS Discount Card</a>
+      <p class="body-text">It's free to use &mdash; and you start saving immediately.</p>
+      <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-discount" style="margin-top:0.5rem;">💊 Get your free SRxS Discount Card</a>
     </div>
     <div class="own-card-preview">
       <div class="ocp-logo">SR<span style="color:#4fe0bf;">x</span>S</div>
@@ -407,8 +368,33 @@
       <div class="ocp-savings-val">Up to 80%</div>
       <div class="ocp-savings-sub">on prescription medications at participating pharmacies</div>
       <div class="ocp-network">
-        Accepted at 60,000+ pharmacies nationwide · Free · No expiration
+        Accepted at 60,000+ pharmacies nationwide &middot; Free &middot; No expiration
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR ORGANIZATIONS -->
+<section class="intro-section" style="padding-top:0;">
+  <div>
+    <div class="section-label">For organizations</div>
+    <h2>Want this card under your own brand?</h2>
+    <p class="body-text">
+      Health plans, employers, brokers, TPAs, and associations can offer this same savings on a card that carries their own logo, colors, and web address &mdash; through our White-Label Discount Card Program.
+    </p>
+    <a href="dcp.html" class="btn-primary" style="margin-top:0.25rem;">See the White-Label Program &rarr;</a>
+  </div>
+  <div class="intro-visual">
+    <div class="mock-card">
+      <div class="mock-card-chip"></div>
+      <div class="mock-card-name">Your Organization Name</div>
+      <div class="mock-card-sub">Pharmacy Discount Card &middot; Powered by SRxS</div>
+      <div class="mock-card-rx">Rx</div>
+    </div>
+    <div class="mock-savings">
+      <div class="mock-saving-pill"><div class="mock-saving-val">80%</div><div class="mock-saving-lbl">Avg Savings</div></div>
+      <div class="mock-saving-pill"><div class="mock-saving-val">60K+</div><div class="mock-saving-lbl">Pharmacies</div></div>
+      <div class="mock-saving-pill"><div class="mock-saving-val">Free</div><div class="mock-saving-lbl">To Members</div></div>
     </div>
   </div>
 </section>
@@ -416,12 +402,12 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <div class="section-label">Get Started</div>
-    <h2>Ready to launch your<br>discount card program?</h2>
-    <p>Talk to an SRxS expert today to explore how a white-label pharmacy discount card program can add value for your members — and your organization.</p>
+    <div class="section-label">Start saving</div>
+    <h2>Your prescriptions,<br>for less.</h2>
+    <p>Get your free SRxS Discount Card and see what you'd pay at pharmacies near you &mdash; in under a minute.</p>
     <div class="cta-actions">
-      <a href="#" onclick="openModal(); return false;" class="btn-primary">Talk to an Expert →</a>
-      <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-discount">💊 Try the SRxS Card</a>
+      <a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="btn-discount">💊 Get your free card</a>
+      <a href="#" onclick="openModal(); return false;" class="btn-primary">Talk to us &rarr;</a>
     </div>
   </div>
 </section>
@@ -434,11 +420,12 @@
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="discount-card.html">Discount Card Programs</a>
-    <a href="#" onclick="openModal(); return false;">Contact</a>
+    <a href="services.html">Products &amp; Services</a>
+    <a href="#" onclick="openModal(); return false;">Contact Us</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
-  <div>© 2025 SRxS. All rights reserved.</div>
+  <div>© 2026 SRxS. All rights reserved.</div>
 </footer>
 
 <!-- CONTACT MODAL -->

@@ -13,10 +13,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Explore the full range of SRxS pharmacy benefit services — claims adjudication, network & payment, rebate management, formulary & plan design, discount programs, and data & analytics.">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#ffffff">
 <title>Services — SRxS | Simplified RX Solutions</title>
@@ -80,9 +80,38 @@
   h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3.4vw, 2.7rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; color: var(--ink); }
 
   /* CATEGORY PILLS */
-  .services-nav { position: relative; z-index: 1; padding: 0 5% 4rem; display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
+  .services-nav { position: sticky; top: 68px; z-index: 90; background: rgba(255,255,255,0.92); backdrop-filter: blur(14px) saturate(1.4); border-bottom: 1px solid var(--border); padding: 0.85rem 5%; display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
+  /* keep jump targets clear of the fixed header + sticky pill bar */
+  .service-block, .tint-section { scroll-margin-top: 140px; }
   .cat-pill { background: #fff; border: 1px solid var(--border-strong); color: var(--body); padding: 0.55rem 1.2rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; box-shadow: var(--shadow-sm); }
   .cat-pill:hover, .cat-pill.active { background: var(--teal-soft); border-color: var(--teal-soft2); color: var(--teal-ink); }
+
+  /* OFFERINGS: SERVICE vs PRODUCT */
+  .offerings { padding: 3rem 5% 1rem; max-width: 1080px; margin: 0 auto; }
+  .offerings-head { text-align: center; max-width: 640px; margin: 0 auto 2.5rem; }
+  .offerings-head .section-label { justify-content: center; }
+  .offerings-head h2 { margin-bottom: 0.6rem; }
+  .offerings-head p { color: var(--body); }
+  .offerings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .offering { display: block; background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 1.75rem; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; text-decoration: none; color: inherit; position: relative; overflow: hidden; }
+  .offering:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-strong); text-decoration: none; }
+  .offering.feat { border-color: var(--teal-soft2); }
+  .offering.feat::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--teal-deep)); }
+  .offering-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 5px; margin-bottom: 0.9rem; }
+  .tag-service { background: #eef3f1; color: #59646f; }
+  .tag-product { background: var(--teal-soft); color: var(--teal-ink); }
+  .offering h3 { font-family: 'Syne', sans-serif; font-size: 1.15rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .offering p { font-size: 0.9rem; color: var(--body); line-height: 1.6; margin-bottom: 1rem; }
+  .offering-link { font-weight: 600; color: var(--teal-deep); font-size: 0.9rem; }
+  .offerings-grid.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px) { .offerings-grid.three { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .offerings-grid { grid-template-columns: 1fr; } }
+
+  /* PBA umbrella intro */
+  .pba-head { max-width: 720px; margin: 1.5rem auto 0; padding: 2.5rem 5% 0.5rem; text-align: center; scroll-margin-top: 96px; }
+  .pba-head .section-label { justify-content: center; }
+  .pba-head h2 { margin-bottom: 0.6rem; }
+  .pba-head p { color: var(--body); }
 
   /* SERVICE BLOCKS */
   .service-block { padding: 5rem 5%; position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
@@ -132,7 +161,7 @@
   /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 2.4rem 5%; max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; font-size: 0.82rem; color: var(--muted); position: relative; z-index: 1; }
   .footer-logo svg { height: 30px; width: auto; display: block; }
-  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links { display: flex; gap: 1rem 1.5rem; flex-wrap: wrap; justify-content: center; }
   .footer-links a { color: var(--body); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--teal-deep); }
 
@@ -146,6 +175,23 @@
     nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; }
     .highlight-strip { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
   }
+
+  /* Products & Services dropdown */
+  .nav-dd { position: relative; }
+  .nav-dd-toggle { cursor: pointer; }
+  .nav-dd-toggle.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-caret { font-size: 0.7em; }
+  .nav-dd-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 244px; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 14px 32px rgba(13,28,36,0.14); padding: 0.4rem; list-style: none; margin: 0.5rem 0 0; z-index: 200; }
+  .nav-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -0.55rem; height: 0.55rem; }
+  .dd-sep { height: 1px; background: var(--border); margin: 0.35rem; padding: 0; }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu li { display: block; }
+  .nav-dd-menu a { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.65rem; border-radius: 7px; font-size: 0.85rem; font-weight: 500; white-space: nowrap; color: var(--body); }
+  .nav-dd-menu a:hover { background: var(--teal-soft); color: var(--teal-deep); text-decoration: none; }
+  .nav-dd-menu a.active { color: var(--teal-deep); font-weight: 600; }
+  .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
+  .dd-service { background: #eef3f1; color: #59646f; }
+  .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
 </style>
 </head>
 <body>
@@ -180,8 +226,16 @@
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="discount-card.html">Discount Card Programs</a></li>
+    <li class="nav-dd">
+      <a href="services.html" class="nav-dd-toggle active">Products &amp; Services <span class="dd-caret">&#9662;</span></a>
+      <ul class="nav-dd-menu">
+        <li><a href="services.html" class="active">Overview</a></li>
+        <li><a href="discount-card.html"><span class="dd-tag dd-product">Product</span> SRxS Discount Card</a></li>
+        <li class="dd-sep" aria-hidden="true"></li>
+        <li><a href="services.html#pba"><span class="dd-tag dd-service">Service</span> Pharmacy Benefit Administration</a></li>
+        <li><a href="dcp.html"><span class="dd-tag dd-service">Service</span> White-Label Program</a></li>
+      </ul>
+    </li>
     <li><a href="https://pricing.srxspbm.com" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li>
     <li class="nav-cta-li"><a href="#" onclick="openModal(); return false;" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -191,18 +245,54 @@
 <section class="page-hero">
   <div class="hero-grid"></div>
   <div class="page-hero-content">
-    <div class="hero-badge">What We Offer</div>
-    <h1>Services Built for the<br><span class="accent">Modern PBM</span> Landscape</h1>
+    <div class="hero-badge">Products &amp; Services</div>
+    <h1>Built for the<br><span class="accent">Modern PBM</span> Landscape</h1>
     <p class="hero-sub">
       From claims adjudication to real-time analytics, every SRxS service is designed to be fully configurable, scalable, and delivered at a cost that works for organizations of every size.
     </p>
   </div>
 </section>
 
+<!-- OFFERINGS -->
+<section class="offerings">
+  <div class="offerings-head">
+    <div class="section-label">Products &amp; Services</div>
+    <h2>One platform. Three ways to work with us.</h2>
+    <p>Run your entire pharmacy benefit on our platform, hand your members a ready-made discount card, or launch your own branded card program.</p>
+  </div>
+  <div class="offerings-grid three">
+    <a class="offering feat" href="#pba">
+      <span class="offering-tag tag-service">Service</span>
+      <h3>Pharmacy Benefit Administration</h3>
+      <p>Our end-to-end PBM platform — claims adjudication, pharmacy network rental, rebates, formulary &amp; plan design, and real-time analytics, all configured around your rules.</p>
+      <span class="offering-link">Explore PBA capabilities →</span>
+    </a>
+    <a class="offering" href="discount-card.html">
+      <span class="offering-tag tag-product">Product</span>
+      <h3>SRxS Discount Card</h3>
+      <p>Our ready-to-use pharmacy discount card. Members present it at 60,000+ pharmacies and save instantly — no enrollment, no cost, nothing to build.</p>
+      <span class="offering-link">About the card →</span>
+    </a>
+    <a class="offering" href="dcp.html">
+      <span class="offering-tag tag-service">Service</span>
+      <h3>White-Label Discount Card Program</h3>
+      <p>Your card, your brand, your data — launched and run on the SRxS platform. You get the brand, the reporting, and the economics. We run the plumbing.</p>
+      <span class="offering-link">See the program →</span>
+    </a>
+  </div>
+</section>
+
+<!-- PHARMACY BENEFIT ADMINISTRATION (umbrella) -->
+<section class="pba-head" id="pba">
+  <div class="section-label">Service — Pharmacy Benefit Administration (PBA)</div>
+  <h2>Everything a modern PBM does, on one configurable platform.</h2>
+  <p>Every capability below is part of our PBA service — delivered from a single real-time adjudication engine and one accountable team.</p>
+</section>
+
 <!-- CATEGORY PILLS -->
 <div class="services-nav">
-  <a href="#adjudication" class="cat-pill">Claims &amp; Adjudication</a>
-  <a href="#network" class="cat-pill">Network &amp; Payment</a>
+  <a href="#adjudication" class="cat-pill">Claims Adjudication</a>
+  <a href="#network" class="cat-pill">Pharmacy Network Rental</a>
   <a href="#rebates" class="cat-pill">Rebate Management</a>
   <a href="#formulary" class="cat-pill">Formulary &amp; Plan Design</a>
   <a href="#discount" class="cat-pill">Discount &amp; Copay Programs</a>
@@ -214,7 +304,7 @@
   <div class="block-header">
     <div class="block-label-wrap">
       <div class="block-icon">💊</div>
-      <div class="section-label">Claims &amp; Adjudication</div>
+      <div class="section-label">Claims Adjudication</div>
       <h2>Real-Time, Rules-Driven Claims Processing</h2>
       <p>Our adjudication engine is built to handle virtually any business rule — at any scale. Fully configurable, fully transparent, and built for speed.</p>
     </div>
@@ -280,7 +370,7 @@
     <div class="block-header">
       <div class="block-label-wrap">
         <div class="block-icon">🏥</div>
-        <div class="section-label">Network &amp; Payment</div>
+        <div class="section-label">Pharmacy Network Rental</div>
         <h2>Nationwide Access. Seamless Administration.</h2>
         <p>SRxS connects clients to a broad pharmacy network while delivering the payment infrastructure to manage it all efficiently.</p>
       </div>
@@ -427,7 +517,7 @@
     <div class="features-grid">
       <div class="feature-card">
         <h3>Pharmacy Discount Card Programs</h3>
-        <p>End-to-end discount card program administration — from card issuance and branding to real-time adjudication and reporting.</p>
+        <p>End-to-end white-label discount card program administration — from card issuance and branding to real-time adjudication and reporting.</p>
         <ul class="feature-bullets">
           <li>Custom-branded discount card design and fulfillment</li>
           <li>Real-time adjudication at point of sale</li>
@@ -435,6 +525,7 @@
           <li>Digital and physical card delivery options</li>
           <li>Member utilization and savings reporting</li>
         </ul>
+        <a href="dcp.html" style="display:inline-block; margin-top:0.9rem; font-weight:600; color:var(--teal-deep); font-size:0.85rem; text-decoration:none;">See the White-Label Program →</a>
       </div>
       <div class="feature-card">
         <h3>Copay &amp; Coupon Assistance Management</h3>
@@ -540,11 +631,12 @@
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="index.html#technology">Platform</a>
-    <a href="#" onclick="openModal(); return false;">Contact</a>
+    <a href="services.html">Products &amp; Services</a>
+    <a href="#" onclick="openModal(); return false;">Contact Us</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
-  <div>© 2025 SRxS. All rights reserved.</div>
+  <div>© 2026 SRxS. All rights reserved.</div>
 </footer>
 
 <!-- ── CONTACT MODAL ── -->
