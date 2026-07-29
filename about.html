@@ -492,6 +492,9 @@ function openModal() {
   document.body.style.overflow = 'hidden';
   document.getElementById('contactForm').style.display = 'flex';
   document.getElementById('formSuccess').style.display = 'none';
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = false;
+  btn.textContent = 'Send Message →';
 }
 function closeModal() {
   document.getElementById('contactModal').style.display = 'none';
@@ -516,6 +519,9 @@ function submitForm(e) {
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.success) {
+        document.getElementById('contactForm').reset();
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
         document.getElementById('contactForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
         setTimeout(closeModal, 3500);
@@ -528,7 +534,7 @@ function submitForm(e) {
     .catch(function() {
       btn.textContent = 'Send Message →';
       btn.disabled = false;
-      alert('Network error. Please email us directly at info@srxs.com');
+      alert('Network error. Please email us directly at info@simplifiedrxsolutions.com');
     });
 }
 document.addEventListener('DOMContentLoaded', function() {
