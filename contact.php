@@ -58,15 +58,15 @@ $message
 Sent from: $site_name contact form
 ";
 
-$headers  = "From: SRxS Website <noreply@srxspbm.com>\r\n";
+$headers  = "From: SRxS Website <noreply@simplifiedrxsolutions.com>\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$headers .= "Message-ID: <" . time() . '.' . md5($email . $message) . "@srxspbm.com>\r\n";
+$headers .= "Message-ID: <" . time() . '.' . md5($email . $message) . "@simplifiedrxsolutions.com>\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 // Send the email. The -f envelope sender makes SPF align with the From domain.
-$sent = mail($to_email, $subject, $body, $headers, "-fnoreply@srxspbm.com");
+$sent = mail($to_email, $subject, $body, $headers, "-fnoreply@simplifiedrxsolutions.com");
 
 // Send auto-reply to the person who submitted
 if ($sent) {
@@ -83,16 +83,16 @@ Here's a copy of what you sent us:
 $message
 ────────────────────────────────
 
-In the meantime, you can learn more about our services at srxspbm.com.
+In the meantime, you can learn more about our services at simplifiedrxsolutions.com.
 
 Best regards,
 The SRxS Team
 ";
-    $reply_headers  = "From: SRxS – Simplified RX Solutions <noreply@srxspbm.com>\r\n";
+    $reply_headers  = "From: SRxS – Simplified RX Solutions <noreply@simplifiedrxsolutions.com>\r\n";
     $reply_headers .= "Reply-To: $to_email\r\n";
     $reply_headers .= "MIME-Version: 1.0\r\n";
     $reply_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    mail($email, $reply_subject, $reply_body, $reply_headers, "-fnoreply@srxspbm.com");
+    mail($email, $reply_subject, $reply_body, $reply_headers, "-fnoreply@simplifiedrxsolutions.com");
 }
 
 header('Content-Type: application/json');
