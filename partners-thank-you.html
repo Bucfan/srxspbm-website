@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7KS7CNF6GP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7KS7CNF6GP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Thanks for your interest in the SRxS white-label partner program. Next step: a 20-minute discovery call.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#ffffff">
+<title>Thanks — Partner Discovery | SRxS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-tint: #f4f9f8; --surface2: #f7faf9;
+    --border: #e5ecea; --border-strong: #d6e2df;
+    --teal: #00b894; --teal-deep: #009e7f; --teal-ink: #007a63; --teal-soft: #e6f7f2; --teal-soft2: #d3f0e8;
+    --ink: #0d1c24; --body: #47585f; --muted: #7a8a90;
+    --shadow-sm: 0 1px 2px rgba(13,28,36,0.04), 0 2px 8px rgba(13,28,36,0.04);
+    --shadow-md: 0 8px 24px rgba(13,28,36,0.07), 0 2px 6px rgba(13,28,36,0.04);
+    --shadow-teal: 0 12px 28px rgba(0,184,148,0.28);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--body); overflow-x: hidden; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+  a { color: inherit; }
+  main { flex: 1; }
+
+  /* NAV (shared) */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 5%; background: rgba(255,255,255,0.82); backdrop-filter: blur(18px) saturate(1.6); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo svg { height: 42px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 1.9rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; color: var(--body); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal-deep); }
+  .nav-links a.active { color: var(--teal-deep); font-weight: 600; }
+  .nav-cta { background: var(--ink) !important; color: #fff !important; padding: 0.6rem 1.3rem; border-radius: 8px; font-weight: 600 !important; }
+  .nav-cta:hover { background: #10303a !important; }
+  .nav-discount { background: var(--teal-soft) !important; border: 1px solid var(--teal-soft2) !important; color: var(--teal-ink) !important; padding: 0.55rem 1.05rem; border-radius: 8px; font-weight: 600 !important; font-size: 0.8rem !important; }
+  .nav-dd { position: relative; }
+  .nav-dd-toggle { cursor: pointer; }
+  .dd-caret { font-size: 0.7em; }
+  .nav-dd-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 244px; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 14px 32px rgba(13,28,36,0.14); padding: 0.4rem; list-style: none; margin: 0.5rem 0 0; z-index: 200; }
+  .nav-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -0.55rem; height: 0.55rem; }
+  .dd-sep { height: 1px; background: var(--border); margin: 0.35rem; padding: 0; }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu li { display: block; }
+  .nav-dd-menu a { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.65rem; border-radius: 7px; font-size: 0.85rem; font-weight: 500; white-space: nowrap; color: var(--body); }
+  .nav-dd-menu a:hover { background: var(--teal-soft); color: var(--teal-deep); text-decoration: none; }
+  .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
+  .dd-service { background: #eef3f1; color: #59646f; }
+  .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
+
+  /* PAGE */
+  .page { padding: 9.5rem 5% 5rem; background: radial-gradient(ellipse 70% 55% at 50% -8%, var(--teal-soft) 0%, transparent 60%), linear-gradient(180deg, #fbfefd 0%, #ffffff 100%); }
+  .panel { max-width: 720px; margin: 0 auto; background: #fff; border: 1px solid var(--border); border-radius: 22px; padding: 3rem; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #00c9a3, #009e7f); }
+  .mark { width: 54px; height: 54px; border-radius: 50%; background: var(--teal-soft); color: var(--teal-deep); display: grid; place-items: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.2rem; }
+  .section-label { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 0.8rem; }
+  .section-label::before { content: ''; width: 22px; height: 2px; border-radius: 2px; background: var(--teal); }
+  h1 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; color: var(--ink); margin-bottom: 1rem; }
+  p { line-height: 1.7; }
+  .lead { font-size: 1.02rem; margin-bottom: 1.2rem; }
+  .summary { border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.2rem; margin: 1.4rem 0; background: var(--surface2); font-size: 0.88rem; display: none; }
+  .summary div { padding: 0.25rem 0; }
+  .summary b { color: var(--ink); }
+  .actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.4rem; }
+  .btn-primary, .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.7rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s; }
+  .btn-primary { background: var(--teal); color: #fff; box-shadow: var(--shadow-teal); }
+  .btn-primary:hover { background: var(--teal-deep); transform: translateY(-2px); }
+  .btn-ghost { border: 1px solid var(--border-strong); color: var(--ink); background: #fff; }
+  .btn-ghost:hover { border-color: var(--teal); background: var(--teal-soft); transform: translateY(-2px); }
+  .note { font-size: 0.8rem; color: var(--muted); margin-top: 1.4rem; line-height: 1.6; }
+  .note a { color: var(--teal-ink); font-weight: 600; }
+
+  /* FOOTER (shared) */
+  footer { border-top: 1px solid var(--border); padding: 2.4rem 5%; max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; font-size: 0.82rem; color: var(--muted); width: 100%; }
+  .footer-logo svg { height: 30px; width: auto; display: block; }
+  .footer-links { display: flex; gap: 1rem 1.5rem; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { color: var(--body); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal-deep); }
+
+  @media (max-width: 900px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
+  @media (max-width: 600px) { .page { padding-top: 7.5rem; } .panel { padding: 1.8rem 1.4rem; } .actions a { width: 100%; justify-content: center; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c9a3"/>
+      <stop offset="100%" stop-color="#009e7f"/>
+    </linearGradient>
+    <g id="srxs-logo">
+      <rect x="2" y="4" width="64" height="64" rx="15" fill="#f4f9f8" stroke="#d3f0e8" stroke-width="1.4"/>
+      <rect x="2" y="4" width="64" height="3.5" rx="3" fill="url(#tealGrad)"/>
+      <rect x="18" y="28" width="32" height="10" rx="5" fill="#d3f0e8"/>
+      <rect x="29" y="17" width="10" height="32" rx="5" fill="#d3f0e8"/>
+      <rect x="29" y="28" width="10" height="10" rx="2.5" fill="url(#tealGrad)"/>
+      <circle cx="9" cy="11.5" r="2" fill="#00b894" opacity="0.5"/>
+      <circle cx="59" cy="60.5" r="2" fill="#00b894" opacity="0.5"/>
+      <text x="82" y="37" font-family="Syne, Arial Black, sans-serif" font-size="27" font-weight="800" letter-spacing="-0.5"><tspan fill="#0d1c24">SR</tspan><tspan fill="#00b894">x</tspan><tspan fill="#0d1c24">S</tspan></text>
+      <line x1="82" y1="44" x2="176" y2="44" stroke="#d3f0e8" stroke-width="1"/>
+      <text x="82" y="57" font-family="Inter, Arial, sans-serif" font-size="8.5" font-weight="600" letter-spacing="3" fill="#7a8a90">SIMPLIFIED RX SOLUTIONS</text>
+    </g>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html" aria-label="SRxS home"><svg viewBox="0 0 300 72" role="img" aria-label="SRxS — Simplified RX Solutions"><use href="#srxs-logo"/></svg></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dd">
+      <a href="services.html" class="nav-dd-toggle">Products &amp; Services <span class="dd-caret">&#9662;</span></a>
+      <ul class="nav-dd-menu">
+        <li><a href="services.html">Overview</a></li>
+        <li><a href="discount-card.html"><span class="dd-tag dd-product">Product</span> SRxS Discount Card</a></li>
+        <li class="dd-sep" aria-hidden="true"></li>
+        <li><a href="services.html#pba"><span class="dd-tag dd-service">Service</span> Pharmacy Benefit Administration</a></li>
+        <li><a href="dcp.html"><span class="dd-tag dd-service">Service</span> White-Label Program</a></li>
+      </ul>
+    </li>
+    <li><a href="partners.html" class="active">Partners</a></li>
+    <li><a href="https://srxsdc.com/card/SRXS001" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li>
+    <li class="nav-cta-li"><a href="mailto:info@simplifiedrxsolutions.com" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="page">
+    <div class="panel">
+      <div class="mark" aria-hidden="true">✓</div>
+      <div class="section-label">Next step · Discovery</div>
+      <h1>Let's put 20 minutes on the calendar.</h1>
+      <p class="lead">Thanks — we've received your details. We'll discuss your audience, distribution approach, estimated program economics and what it would take to launch under your brand.</p>
+
+      <div id="summary" class="summary" aria-label="What you told us"></div>
+
+      <div id="schedulerBox">
+        <p id="schedulerCopy">A member of the SRxS partner team will reach out shortly to find a time that works for you. Prefer to pick a time now? Email us and we'll send over available slots.</p>
+        <div class="actions">
+          <a class="btn-primary" id="scheduleLink" href="mailto:info@simplifiedrxsolutions.com?subject=SRxS%20Partner%20Discovery%20Call">Request a time by email →</a>
+          <a class="btn-ghost" href="partners.html">Back to the partner page</a>
+        </div>
+      </div>
+
+      <p class="note">A confirmation email with a copy of your request is on its way. While you wait, you can <a href="assets/srxs-discount-program-brochure.pdf" target="_blank" rel="noopener noreferrer">download the program brochure</a> to share with your team.</p>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><svg viewBox="0 0 300 72" role="img" aria-label="SRxS"><use href="#srxs-logo"/></svg></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Products &amp; Services</a>
+    <a href="partners.html">Partners</a>
+    <a href="mailto:info@simplifiedrxsolutions.com">Contact Us</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <div>© 2026 SRxS. All rights reserved.</div>
+</footer>
+
+<script>
+(function () {
+  // Once a booking link (Calendly, Microsoft Bookings, HubSpot Meetings, etc.)
+  // is approved, set it here and the page switches to a direct "Book your call" button.
+  var schedulerUrl = '';
+
+  var data = null;
+  try { data = JSON.parse(sessionStorage.getItem('srxs_partner_intake') || 'null'); } catch (e) {}
+  if (data && typeof data === 'object') {
+    var el = document.getElementById('summary');
+    function row(label, value) {
+      if (!value) return;
+      var div = document.createElement('div');
+      var b = document.createElement('b');
+      b.textContent = label + ': ';
+      div.appendChild(b);
+      div.appendChild(document.createTextNode(value));
+      el.appendChild(div);
+    }
+    row('Organization', data.organization);
+    row('Organization type', data.type);
+    row('Potential audience', data.audience ? Number(data.audience).toLocaleString('en-US') + ' people' : '');
+    row('Reach', Array.isArray(data.channels) ? data.channels.join(', ') : '');
+    row('API interest', data.api);
+    row('Target launch', data.launch);
+    if (el.children.length) el.style.display = 'block';
+  }
+
+  if (schedulerUrl) {
+    document.getElementById('schedulerCopy').textContent = 'Choose a convenient time for your 20-minute partner discovery conversation.';
+    var link = document.getElementById('scheduleLink');
+    link.href = schedulerUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Book your 20-minute call →';
+  }
+
+  try { if (typeof gtag === 'function') gtag('event', 'discovery_thank_you'); } catch (e) {}
+})();
+</script>
+</body>
+</html>

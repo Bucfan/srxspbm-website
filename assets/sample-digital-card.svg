@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" role="img" aria-labelledby="title desc">
+ <title id="title">Sample white-label prescription discount card</title><desc id="desc">Illustrative card with placeholder routing fields; not active for pharmacy use</desc>
+ <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#042f49"/><stop offset="1" stop-color="#008e84"/></linearGradient></defs>
+ <rect width="1000" height="625" fill="#edf6f6"/><rect x="35" y="35" width="930" height="555" rx="38" fill="url(#g)"/>
+ <text x="84" y="125" fill="white" font-family="Arial,sans-serif" font-size="46" font-weight="bold">YOUR ORGANIZATION</text><text x="86" y="173" fill="#bcfff2" font-family="Arial,sans-serif" font-size="25" letter-spacing="3">PRESCRIPTION SAVINGS CARD · SAMPLE</text>
+ <rect x="85" y="226" width="58" height="47" rx="7" fill="#aedcd0" opacity=".7"/><path d="M114 232v35 M89 250h49" stroke="#3b847e" stroke-width="2"/>
+ <g fill="#b8dedb" font-family="Arial,sans-serif" font-size="22" letter-spacing="2"><text x="86" y="356">BIN</text><text x="528" y="356">PCN</text><text x="86" y="468">GROUP</text><text x="528" y="468">PATIENT ID</text></g>
+ <g fill="white" font-family="Arial,sans-serif" font-size="31" font-weight="bold"><text x="86" y="395">YOUR BIN / OURS</text><text x="528" y="395">CONFIGURED</text><text x="86" y="508">YOUR GROUP</text><text x="528" y="508">GENERATED</text></g>
+ <text x="85" y="562" fill="#d4f7f2" font-family="Arial,sans-serif" font-size="18">NOT INSURANCE · SAMPLE ONLY · NOT VALID FOR PHARMACY USE</text>
+</svg>

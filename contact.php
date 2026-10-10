@@ -56,6 +56,31 @@ $email   = clean($_POST['email']   ?? '');
 $phone   = clean($_POST['phone']   ?? '');
 $message = clean($_POST['message'] ?? '');
 
+// Optional fields. The original contact modal sends none of these; the partner
+// page (partners.html) sends an organization and a source so leads are easy to
+// tell apart in the inbox and the log.
+$organization = clean($_POST['organization'] ?? '');
+$source       = clean($_POST['source'] ?? '');
+$form_labels  = [
+    'partner-calculator' => 'Partner Calculator Estimate',
+    'partner-intake'     => 'Partner Discovery Request',
+];
+$form_label = $form_labels[$source] ?? 'Contact Form';
+
+// Honeypot: a visually hidden field real visitors never fill in. If a bot does,
+// answer as if the message was sent and quietly drop it.
+if (!empty($_POST['hp_token'])) {
+    header('Content-Type: application/json');
+    echo json_encode(['success' => true, 'message' => 'Message sent successfully.']);
+    exit;
+}
+
+// clean() HTML-escapes for safety, but the emails below are text/plain, so
+// decode entities when composing them (otherwise "we'll" arrives as "we&#039;ll").
+function plain($value) {
+    return html_entity_decode($value, ENT_QUOTES, 'UTF-8');
+}
+
 // Basic validation
 if (empty($name) || empty($email) || empty($message)) {
     http_response_code(400);
@@ -70,19 +95,21 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Build email
-$subject = "New Contact Form Submission – $site_name";
+$subject = "New $form_label Submission – $site_name";
+$form_desc = $source !== '' ? "partner page ($form_label)" : "contact form";
+$org_line  = $organization !== '' ? "Org:     " . plain($organization) . "\n" : "";
 
 $body = "
-You have received a new message from the $site_name website contact form.
+You have received a new message from the $site_name website $form_desc.
 
 ────────────────────────────────
-Name:    $name
+Name:    " . plain($name) . "
 Email:   $email
 Phone:   " . ($phone ?: 'Not provided') . "
-────────────────────────────────
+" . $org_line . "────────────────────────────────
 
 Message:
-$message
+" . plain($message) . "
 
 ────────────────────────────────
 Sent from: $site_name contact form
@@ -97,8 +124,9 @@ $headers .= "X-Mailer: PHP/" . phpversion();
 
 // Record the lead BEFORE attempting delivery, so it survives any mail failure.
 $logged = log_submission($log_file, sprintf(
-    "SUBMISSION | name=%s | email=%s | phone=%s | ip=%s | message=%s",
-    $name, $email, ($phone ?: '-'), ($_SERVER['REMOTE_ADDR'] ?? '-'),
+    "SUBMISSION | source=%s | name=%s | email=%s | phone=%s | org=%s | ip=%s | message=%s",
+    ($source ?: 'contact-form'), $name, $email, ($phone ?: '-'), ($organization ?: '-'),
+    ($_SERVER['REMOTE_ADDR'] ?? '-'),
     str_replace(["\r", "\n"], ' ', $message)
 ));
 
@@ -139,17 +167,24 @@ $captured = $sent || $sent_backup || $logged;
 
 // Send auto-reply to the person who submitted
 if ($captured) {
-    $reply_subject = "We received your message – $site_name";
+    if ($source === 'partner-calculator') {
+        $reply_subject = "Your SRxS partner program estimate";
+        $reply_intro   = "Thanks for exploring the SRxS white-label partner program. Here is the estimate you built on our partner page. A member of our partner team may follow up to walk through it with you.\n\nEstimates are based on the assumptions you entered and are not a guarantee of results.";
+    } elseif ($source === 'partner-intake') {
+        $reply_subject = "We received your partner discovery request – $site_name";
+        $reply_intro   = "Thanks for your interest in the SRxS white-label partner program. We've received your details and a member of our partner team will reach out shortly to schedule your 20-minute discovery call.";
+    } else {
+        $reply_subject = "We received your message – $site_name";
+        $reply_intro   = "Thank you for reaching out to SRxS – Simplified RX Solutions!\n\nWe've received your message and a member of our team will be in touch with you shortly.";
+    }
     $reply_body = "
-Hi $name,
+Hi " . plain($name) . ",
 
-Thank you for reaching out to SRxS – Simplified RX Solutions!
-
-We've received your message and a member of our team will be in touch with you shortly.
+$reply_intro
 
 Here's a copy of what you sent us:
 ────────────────────────────────
-$message
+" . plain($message) . "
 ────────────────────────────────
 
 In the meantime, you can learn more about our services at simplifiedrxsolutions.com.
