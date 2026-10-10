@@ -467,6 +467,8 @@
   .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
   .dd-service { background: #eef3f1; color: #59646f; }
   .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
+  /* With the Partners item the full link row no longer fits below 1000px. */
+  @media (max-width: 1000px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
 </style>
 </head>
 <body>

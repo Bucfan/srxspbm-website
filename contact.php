@@ -35,6 +35,9 @@ $log_file = __DIR__ . "/../../srxs-contact-submissions.log";
  * written the form must still work.
  */
 function log_submission($log_file, $entry) {
+    // One record per line: flatten any newlines a field may carry so a crafted
+    // submission cannot split a record or forge a second one.
+    $entry = preg_replace('/[\r\n\t]+/', ' ', (string) $entry);
     $line = "[" . gmdate('Y-m-d H:i:s') . " UTC] " . $entry . "\n";
     return @file_put_contents($log_file, $line, FILE_APPEND | LOCK_EX) !== false;
 }
@@ -51,25 +54,37 @@ function clean($value) {
     return htmlspecialchars(strip_tags(trim($value)), ENT_QUOTES, 'UTF-8');
 }
 
-$name    = clean($_POST['name']    ?? '');
-$email   = clean($_POST['email']   ?? '');
-$phone   = clean($_POST['phone']   ?? '');
+// Single-line fields: also collapse any line breaks a crafted request may carry.
+function clean_line($value) {
+    return clean(preg_replace('/[\r\n\t]+/', ' ', (string) $value));
+}
+
+$name    = clean_line($_POST['name']    ?? '');
+$email   = clean_line($_POST['email']   ?? '');
+$phone   = clean_line($_POST['phone']   ?? '');
 $message = clean($_POST['message'] ?? '');
 
 // Optional fields. The original contact modal sends none of these; the partner
 // page (partners.html) sends an organization and a source so leads are easy to
 // tell apart in the inbox and the log.
-$organization = clean($_POST['organization'] ?? '');
-$source       = clean($_POST['source'] ?? '');
+$organization = clean_line($_POST['organization'] ?? '');
+$source       = clean_line($_POST['source'] ?? '');
 $form_labels  = [
     'partner-calculator' => 'Partner Calculator Estimate',
     'partner-intake'     => 'Partner Discovery Request',
 ];
-$form_label = $form_labels[$source] ?? 'Contact Form';
+$is_partner = isset($form_labels[$source]);
+$form_label = $is_partner ? $form_labels[$source] : 'Contact Form';
+$log_source = $is_partner ? $source : 'contact-form';
 
 // Honeypot: a visually hidden field real visitors never fill in. If a bot does,
 // answer as if the message was sent and quietly drop it.
 if (!empty($_POST['hp_token'])) {
+    // Logged so a real visitor caught by an over-eager form filler can still be recovered.
+    log_submission($log_file, sprintf(
+        "HONEYPOT   | source=%s | name=%s | email=%s | ip=%s",
+        $log_source, $name, $email, ($_SERVER['REMOTE_ADDR'] ?? '-')
+    ));
     header('Content-Type: application/json');
     echo json_encode(['success' => true, 'message' => 'Message sent successfully.']);
     exit;
@@ -94,9 +109,16 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// The site's forms produce at most a couple of kilobytes; refuse bulk payloads.
+if (strlen($message) > 20000) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Message is too long.']);
+    exit;
+}
+
 // Build email
 $subject = "New $form_label Submission – $site_name";
-$form_desc = $source !== '' ? "partner page ($form_label)" : "contact form";
+$form_desc = $is_partner ? "partner page ($form_label)" : "contact form";
 $org_line  = $organization !== '' ? "Org:     " . plain($organization) . "\n" : "";
 
 $body = "
@@ -112,7 +134,7 @@ Message:
 " . plain($message) . "
 
 ────────────────────────────────
-Sent from: $site_name contact form
+Sent from: $site_name website $form_desc
 ";
 
 $headers  = "From: SRxS Website <noreply@simplifiedrxsolutions.com>\r\n";
@@ -125,7 +147,7 @@ $headers .= "X-Mailer: PHP/" . phpversion();
 // Record the lead BEFORE attempting delivery, so it survives any mail failure.
 $logged = log_submission($log_file, sprintf(
     "SUBMISSION | source=%s | name=%s | email=%s | phone=%s | org=%s | ip=%s | message=%s",
-    ($source ?: 'contact-form'), $name, $email, ($phone ?: '-'), ($organization ?: '-'),
+    $log_source, $name, $email, ($phone ?: '-'), ($organization ?: '-'),
     ($_SERVER['REMOTE_ADDR'] ?? '-'),
     str_replace(["\r", "\n"], ' ', $message)
 ));
@@ -177,6 +199,8 @@ if ($captured) {
         $reply_subject = "We received your message – $site_name";
         $reply_intro   = "Thank you for reaching out to SRxS – Simplified RX Solutions!\n\nWe've received your message and a member of our team will be in touch with you shortly.";
     }
+    // Echo back at most a few thousand characters; the site's forms send far less.
+    $reply_copy = strlen($message) > 6000 ? substr($message, 0, 6000) . "\n[message truncated]" : $message;
     $reply_body = "
 Hi " . plain($name) . ",
 
@@ -184,7 +208,7 @@ $reply_intro
 
 Here's a copy of what you sent us:
 ────────────────────────────────
-" . plain($message) . "
+" . plain($reply_copy) . "
 ────────────────────────────────
 
 In the meantime, you can learn more about our services at simplifiedrxsolutions.com.

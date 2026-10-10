@@ -28,7 +28,7 @@
     --bg: #ffffff; --bg-tint: #f4f9f8; --surface2: #f7faf9;
     --border: #e5ecea; --border-strong: #d6e2df;
     --teal: #00b894; --teal-deep: #009e7f; --teal-ink: #007a63; --teal-soft: #e6f7f2; --teal-soft2: #d3f0e8;
-    --ink: #0d1c24; --body: #47585f; --muted: #7a8a90;
+    --ink: #0d1c24; --body: #47585f; --muted: #5f6f75;
     --shadow-sm: 0 1px 2px rgba(13,28,36,0.04), 0 2px 8px rgba(13,28,36,0.04);
     --shadow-md: 0 8px 24px rgba(13,28,36,0.07), 0 2px 6px rgba(13,28,36,0.04);
     --shadow-teal: 0 12px 28px rgba(0,184,148,0.28);
@@ -93,7 +93,7 @@
   .footer-links a { color: var(--body); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--teal-deep); }
 
-  @media (max-width: 900px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
+  @media (max-width: 1000px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
   @media (max-width: 600px) { .page { padding-top: 7.5rem; } .panel { padding: 1.8rem 1.4rem; } .actions a { width: 100%; justify-content: center; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 </style>
@@ -122,7 +122,7 @@
 </svg>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Primary">
   <div class="nav-logo">
     <a href="index.html" aria-label="SRxS home"><svg viewBox="0 0 300 72" role="img" aria-label="SRxS — Simplified RX Solutions"><use href="#srxs-logo"/></svg></a>
   </div>
@@ -141,7 +141,7 @@
     </li>
     <li><a href="partners.html" class="active">Partners</a></li>
     <li><a href="https://srxsdc.com/card/SRXS001" target="_blank" rel="noopener noreferrer" class="nav-discount">💊 Try Our Discount Card</a></li>
-    <li class="nav-cta-li"><a href="mailto:info@simplifiedrxsolutions.com" class="nav-cta">Contact Us</a></li>
+    <li class="nav-cta-li"><a href="#" onclick="openModal(); return false;" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
 
@@ -153,7 +153,7 @@
       <h1>Let's put 20 minutes on the calendar.</h1>
       <p class="lead">Thanks — we've received your details. We'll discuss your audience, distribution approach, estimated program economics and what it would take to launch under your brand.</p>
 
-      <div id="summary" class="summary" aria-label="What you told us"></div>
+      <div id="summary" class="summary" role="region" aria-label="What you told us"></div>
 
       <div id="schedulerBox">
         <p id="schedulerCopy">A member of the SRxS partner team will reach out shortly to find a time that works for you. Prefer to pick a time now? Email us and we'll send over available slots.</p>
@@ -176,12 +176,104 @@
     <a href="about.html">About</a>
     <a href="services.html">Products &amp; Services</a>
     <a href="partners.html">Partners</a>
-    <a href="mailto:info@simplifiedrxsolutions.com">Contact Us</a>
+    <a href="#" onclick="openModal(); return false;">Contact Us</a>
     <a href="terms.html">Terms of Service</a>
     <a href="privacy.html">Privacy Policy</a>
   </div>
   <div>© 2026 SRxS. All rights reserved.</div>
 </footer>
+
+<!-- ── CONTACT MODAL ── -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; z-index:999; align-items:center; justify-content:center;">
+  <div id="modalBackdrop" onclick="closeModal()" style="position:absolute; inset:0; background:rgba(13,28,36,0.45); backdrop-filter:blur(6px);"></div>
+  <div style="position:relative; z-index:1; background:#ffffff; border:1px solid #e5ecea; border-radius:20px; padding:2.5rem; width:100%; max-width:480px; margin:1rem; box-shadow:0 40px 90px rgba(13,28,36,0.25);">
+    <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#00c9a3,#009e7f); border-radius:20px 20px 0 0;"></div>
+    <button onclick="closeModal()" aria-label="Close" style="position:absolute; top:1rem; right:1rem; background:#f4f9f8; border:1px solid #e5ecea; color:#47585f; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='#d3f0e8'" onmouseout="this.style.background='#f4f9f8'">&#x2715;</button>
+    <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#e6f7f2; border:1px solid #d3f0e8; padding:0.3rem 0.9rem; border-radius:100px; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#007a63; margin-bottom:1.25rem;">Get In Touch</div>
+    <h3 style="font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; color:#0d1c24; margin-bottom:0.4rem;">Talk to an Expert</h3>
+    <p style="font-size:0.85rem; color:#7a8a90; margin-bottom:1.75rem; line-height:1.6;">Fill out the form below and a member of the SRxS team will be in touch shortly.</p>
+    <form id="contactForm" onsubmit="submitForm(event)" style="display:flex; flex-direction:column; gap:1rem;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div>
+          <label for="cf-name" style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">Full Name *</label>
+          <input type="text" id="cf-name" required placeholder="Jane Smith" style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s, background 0.2s;" onfocus="this.style.borderColor='#00b894'; this.style.background='#fff'" onblur="this.style.borderColor='#e5ecea'; this.style.background='#f7faf9'">
+        </div>
+        <div>
+          <label for="cf-phone" style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">Phone Number</label>
+          <input type="tel" id="cf-phone" placeholder="(555) 000-0000" style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s, background 0.2s;" onfocus="this.style.borderColor='#00b894'; this.style.background='#fff'" onblur="this.style.borderColor='#e5ecea'; this.style.background='#f7faf9'">
+        </div>
+      </div>
+      <div>
+        <label for="cf-email" style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">Email Address *</label>
+        <input type="email" id="cf-email" required placeholder="jane@company.com" style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'Inter',sans-serif; transition:border-color 0.2s, background 0.2s;" onfocus="this.style.borderColor='#00b894'; this.style.background='#fff'" onblur="this.style.borderColor='#e5ecea'; this.style.background='#f7faf9'">
+      </div>
+      <div>
+        <label for="cf-message" style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">How Can We Help? *</label>
+        <textarea id="cf-message" required rows="4" placeholder="Tell us about your organization and what you're looking for..." style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'Inter',sans-serif; resize:vertical; min-height:100px; transition:border-color 0.2s, background 0.2s;" onfocus="this.style.borderColor='#00b894'; this.style.background='#fff'" onblur="this.style.borderColor='#e5ecea'; this.style.background='#f7faf9'"></textarea>
+      </div>
+      <button type="submit" id="submitBtn" style="background:#00b894; color:#fff; border:none; padding:0.85rem 2rem; border-radius:10px; font-size:0.9rem; font-weight:700; cursor:pointer; font-family:'Syne',sans-serif; letter-spacing:0.02em; transition:box-shadow 0.2s, transform 0.2s, background 0.2s;" onmouseover="this.style.background='#009e7f'; this.style.boxShadow='0 12px 28px rgba(0,184,148,0.35)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#00b894'; this.style.boxShadow='none'; this.style.transform='none'">Send Message &#x2192;</button>
+    </form>
+    <div id="formSuccess" style="display:none; text-align:center; padding:2rem 0;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">&#x2705;</div>
+      <h3 style="font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:#009e7f; margin-bottom:0.5rem;">Message Sent!</h3>
+      <p style="font-size:0.85rem; color:#7a8a90; line-height:1.6;">Thank you for reaching out. A member of the SRxS team will be in touch with you shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  var modal = document.getElementById('contactModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('contactForm').style.display = 'flex';
+  document.getElementById('formSuccess').style.display = 'none';
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = false;
+  btn.textContent = 'Send Message →';
+}
+function closeModal() {
+  document.getElementById('contactModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+function submitForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  var formData = new FormData();
+  formData.append('name',    document.getElementById('cf-name').value);
+  formData.append('email',   document.getElementById('cf-email').value);
+  formData.append('phone',   document.getElementById('cf-phone').value);
+  formData.append('message', document.getElementById('cf-message').value);
+
+  fetch('contact.php', { method: 'POST', body: formData })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) {
+        document.getElementById('contactForm').reset();
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        setTimeout(closeModal, 3500);
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        alert('Something went wrong: ' + data.message);
+      }
+    })
+    .catch(function() {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Network error. Please email us directly at info@simplifiedrxsolutions.com');
+    });
+}
+</script>
 
 <script>
 (function () {
