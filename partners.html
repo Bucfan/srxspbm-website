@@ -1258,8 +1258,9 @@ function submitForm(e) {
       clearPreset();
       syncFields(f.num.id);
       updateResults();
-      track('calculator_input_change', { field: key });
     });
+    // One analytics event per committed edit, not one per keystroke.
+    f.num.addEventListener('change', function () { track('calculator_input_change', { field: key }); });
     f.range.addEventListener('input', function () {
       var t = Number(f.range.value);
       if (key === 'audience') {
