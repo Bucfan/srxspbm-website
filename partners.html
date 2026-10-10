@@ -21,7 +21,7 @@
 <title>Partner Program — Your Brand, Your Patients, Our Pharmacy Network | SRxS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #ffffff;
@@ -123,8 +123,10 @@
   .section-label::before { content: ''; width: 22px; height: 2px; border-radius: 2px; background: var(--teal); }
   .sec-dark .section-label { color: var(--teal-bright); }
   .sec-dark .section-label::before { background: var(--teal-bright); }
-  h1, h2, h3, h4 { font-family: 'Syne', sans-serif; color: var(--ink); letter-spacing: -0.02em; line-height: 1.12; }
-  h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 700; margin-bottom: 0.9rem; }
+  h1, h2, h3, h4 { font-family: 'Inter', sans-serif; color: var(--ink); letter-spacing: -0.02em; line-height: 1.12; }
+  h1, h2 { font-weight: 800; }
+  h3, h4 { font-weight: 700; }
+  h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 800; margin-bottom: 0.9rem; }
   .sec-dark h2, .sec-dark h3 { color: #fff; }
   .sec-head { max-width: 720px; margin-bottom: 2.6rem; }
   .sec-head p { font-size: 1.04rem; line-height: 1.75; color: var(--body); }
@@ -154,18 +156,18 @@
   .mock-app { background: #fff; border-radius: 12px; padding: 1.1rem 1.2rem 1rem; color: var(--ink); }
   .mock-top { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; border-bottom: 1px solid var(--border); padding-bottom: 0.8rem; }
   .mock-brand { display: flex; align-items: center; gap: 0.55rem; font-size: 0.72rem; font-weight: 700; line-height: 1.25; }
-  .mock-symbol { width: 30px; height: 30px; border-radius: 9px; background: var(--teal-soft); color: var(--teal-deep); border: 1px solid var(--teal-soft2); display: grid; place-items: center; font-family: 'Syne', sans-serif; font-weight: 800; }
+  .mock-symbol { width: 30px; height: 30px; border-radius: 9px; background: var(--teal-soft); color: var(--teal-deep); border: 1px solid var(--teal-soft2); display: grid; place-items: center; font-weight: 800; }
   .mock-brand small { display: block; font-size: 0.58rem; font-weight: 500; color: var(--muted); }
   .mock-links { font-size: 0.56rem; color: var(--muted); letter-spacing: 0.04em; }
-  .mock-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; margin: 0.95rem 0 0.7rem; color: var(--ink); }
+  .mock-title { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; margin: 0.95rem 0 0.7rem; color: var(--ink); }
   .mock-search { border: 1px solid var(--border-strong); border-radius: 8px; padding: 0.5rem 0.65rem; font-size: 0.66rem; color: var(--muted); }
   .mock-price { margin-top: 0.6rem; border-radius: 9px; background: var(--teal-soft); display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0.8rem; font-size: 0.68rem; color: var(--body); }
   .mock-price b { display: block; color: var(--ink); }
-  .mock-price strong { font-family: 'Syne', sans-serif; font-size: 1.25rem; color: var(--teal-ink); letter-spacing: -0.03em; }
+  .mock-price strong { font-weight: 800; font-size: 1.25rem; color: var(--teal-ink); letter-spacing: -0.03em; }
   .mock-foot { font-size: 0.58rem; color: var(--muted); margin-top: 0.75rem; }
   .rxcard { position: absolute; right: -6px; bottom: -4px; width: 250px; padding: 1rem 1.1rem; border-radius: 14px; background: linear-gradient(135deg, #10303a, #0a2020); border: 1px solid rgba(79,224,191,0.5); box-shadow: 0 18px 40px rgba(0,0,0,0.4); transform: rotate(-6deg); color: #fff; }
   .rxcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 14px 14px 0 0; background: linear-gradient(90deg, var(--teal), var(--teal-deep)); }
-  .rc-top { display: flex; justify-content: space-between; align-items: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.8rem; }
+  .rc-top { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 0.8rem; }
   .rc-top span:last-child { font-family: 'Inter', sans-serif; font-size: 0.52rem; font-weight: 600; letter-spacing: 0.14em; color: rgba(255,255,255,0.55); }
   .rc-chip { margin-top: 0.85rem; width: 24px; height: 16px; border: 1px solid rgba(181,242,231,0.8); border-radius: 4px; background: rgba(255,255,255,0.14); }
   .rc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 0.8rem; margin-top: 0.85rem; }
@@ -174,7 +176,7 @@
 
   .trust { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-top: 1px solid rgba(255,255,255,0.14); margin-top: 3.2rem; padding: 1.5rem 0 1.8rem; position: relative; z-index: 1; }
   .trust-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.78rem; line-height: 1.4; color: rgba(255,255,255,0.72); }
-  .trust-item b { display: block; color: #fff; font-size: 0.95rem; font-family: 'Syne', sans-serif; }
+  .trust-item b { display: block; color: #fff; font-size: 0.95rem; font-weight: 700; }
   .trust-ic { flex: 0 0 36px; height: 36px; border-radius: 10px; border: 1px solid rgba(79,224,191,0.45); background: rgba(0,184,148,0.12); display: grid; place-items: center; color: var(--teal-bright); font-size: 1.05rem; }
 
   /* ─── PAGE JUMPS ─── */
@@ -240,23 +242,23 @@
   .results-head p { color: rgba(255,255,255,0.68); font-size: 0.82rem; }
   .big-result { padding: 1.4rem 1.9rem; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
   .stat-big .tag { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; font-size: 0.66rem; font-weight: 700; margin-bottom: 0.4rem; }
-  .stat-big strong { display: block; font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 2.6vw, 2.5rem); line-height: 1.05; letter-spacing: -0.04em; color: var(--ink); }
+  .stat-big strong { display: block; font-weight: 800; font-size: clamp(1.8rem, 2.6vw, 2.5rem); line-height: 1.05; letter-spacing: -0.04em; color: var(--ink); }
   .stat-big.highlight strong { color: var(--teal-deep); }
   .stat-big .period { display: block; color: var(--muted); font-size: 0.76rem; margin-top: 0.25rem; }
   .stat-big .year { display: block; margin-top: 0.5rem; font-weight: 600; font-size: 0.84rem; color: var(--ink); }
   .mini-results { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; padding: 1.2rem 1.9rem; }
   .mini-stat { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 0.95rem; }
   .mini-stat .tag { font-size: 0.68rem; font-weight: 600; color: var(--muted); }
-  .mini-stat strong { display: block; font-family: 'Syne', sans-serif; font-size: 1.35rem; letter-spacing: -0.03em; margin-top: 0.2rem; color: var(--ink); }
+  .mini-stat strong { display: block; font-weight: 800; font-size: 1.35rem; letter-spacing: -0.03em; margin-top: 0.2rem; color: var(--ink); }
   .mini-stat span { display: block; font-size: 0.74rem; color: var(--muted); }
   .formula { padding: 1.1rem 1.9rem; border-top: 1px solid var(--border); background: var(--surface2); }
   .fee-calc { display: grid; grid-template-columns: 1fr auto; row-gap: 0.4rem; column-gap: 0.8rem; font-size: 0.82rem; color: var(--body); }
   .fee-calc strong { color: var(--ink); }
-  .fee-calc b { font-family: 'Syne', sans-serif; font-size: 1.05rem; color: var(--teal-ink); }
+  .fee-calc b { font-weight: 800; font-size: 1.05rem; color: var(--teal-ink); }
   .fee-footnote { font-size: 0.7rem; line-height: 1.55; color: var(--muted); margin-top: 0.75rem; }
   .payback { margin-top: 0.9rem; border: 1px solid var(--teal-soft2); background: #fff; padding: 0.7rem 0.9rem; border-radius: 9px; display: none; gap: 0.8rem; justify-content: space-between; align-items: center; color: var(--ink); font-size: 0.86rem; }
   .payback.show { display: flex; }
-  .payback strong { font-family: 'Syne', sans-serif; font-size: 1.25rem; color: var(--teal-ink); }
+  .payback strong { font-weight: 800; font-size: 1.25rem; color: var(--teal-ink); }
   .disclaimer { font-size: 0.74rem; color: var(--muted); padding: 1rem 1.9rem 0; line-height: 1.55; }
   .capture { margin: 1.1rem 1.9rem 1.6rem; padding: 1.2rem; background: var(--teal-soft); border: 1px solid var(--teal-soft2); border-radius: 12px; }
   .capture h4 { font-size: 1rem; margin-bottom: 0.35rem; }
@@ -284,8 +286,8 @@
   .case-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 0.9rem; }
   .case-compare div { background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.95rem; }
   .case-compare span { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
-  .case-compare strong { display: block; font-family: 'Syne', sans-serif; font-size: 1.8rem; color: #fff; letter-spacing: -0.04em; }
-  .case-saved { font-family: 'Syne', sans-serif; font-size: 2.7rem; color: var(--teal-bright); font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin-top: 1rem; }
+  .case-compare strong { display: block; font-weight: 800; font-size: 1.8rem; color: #fff; letter-spacing: -0.04em; }
+  .case-saved { font-size: 2.7rem; color: var(--teal-bright); font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin-top: 1rem; }
   .case-label { font-size: 0.78rem; color: rgba(255,255,255,0.72); margin-top: 0.35rem; }
   .case-drugs { font-size: 0.76rem; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.85rem; margin-top: 1rem; }
 
@@ -296,11 +298,11 @@
   .demo-nav { border-bottom: 1px solid var(--border); padding: 0.8rem 1.1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
   .demo-nav-brand { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
   .demo-nav-brand small { display: block; font-size: 0.6rem; font-weight: 500; color: var(--muted); }
-  .demo-logo { height: 34px; width: 34px; border-radius: 10px; background: var(--partner-accent); color: #fff; display: grid; place-items: center; font-family: 'Syne', sans-serif; font-weight: 800; overflow: hidden; flex-shrink: 0; }
+  .demo-logo { height: 34px; width: 34px; border-radius: 10px; background: var(--partner-accent); color: #fff; display: grid; place-items: center; font-weight: 800; overflow: hidden; flex-shrink: 0; }
   .demo-logo img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
   .demo-nav-links { font-size: 0.62rem; color: var(--muted); }
   .demo-body { display: grid; grid-template-columns: 1fr 0.9fr; gap: 1.1rem; padding: 1.3rem; }
-  .demo-body .demo-h { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.12; font-size: 1.35rem; max-width: 260px; margin-bottom: 0.5rem; }
+  .demo-body .demo-h { font-weight: 800; color: var(--ink); letter-spacing: -0.02em; line-height: 1.12; font-size: 1.35rem; max-width: 260px; margin-bottom: 0.5rem; }
   .demo-body p { font-size: 0.78rem; line-height: 1.55; }
   .fake-search { border: 1px solid var(--border-strong); border-radius: 7px; padding: 0.55rem 0.65rem; color: var(--muted); font-size: 0.7rem; margin-top: 0.6rem; }
   .fake-submit { display: block; background: var(--partner-accent); color: #fff; text-align: center; padding: 0.55rem; margin-top: 0.6rem; border-radius: 7px; font-size: 0.72rem; font-weight: 700; }
@@ -308,7 +310,7 @@
   .demo-price-list strong { display: block; font-size: 0.8rem; color: var(--ink); }
   .demo-price-list small { color: var(--muted); font-size: 0.66rem; }
   .demo-price-line { margin-top: 0.55rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; font-size: 0.7rem; color: var(--body); }
-  .demo-price-line b { color: var(--partner-accent); font-size: 1rem; font-family: 'Syne', sans-serif; }
+  .demo-price-line b { color: var(--partner-accent); font-size: 1rem; font-weight: 700; }
   .demo-bottom { border-top: 1px solid var(--border); background: var(--surface2); padding: 0.65rem 1.3rem; font-size: 0.64rem; color: var(--muted); }
   .customize, .searchbox { padding: 1.5rem; border-radius: 16px; }
   .searchbox { background: var(--teal-soft); border: 1px solid var(--teal-soft2); }
@@ -332,7 +334,7 @@
   .example-result.show { display: flex; }
   .example-result b { color: var(--ink); }
   .example-result small { color: var(--muted); font-size: 0.68rem; }
-  .example-result strong { font-family: 'Syne', sans-serif; font-size: 1.35rem; color: var(--teal-ink); }
+  .example-result strong { font-weight: 800; font-size: 1.35rem; color: var(--teal-ink); }
   .demo-safeguard { font-size: 0.72rem; color: var(--muted); margin: 0.75rem 0 0.4rem; }
   .live-link { color: var(--teal-ink); font-weight: 600; font-size: 0.82rem; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -340,7 +342,7 @@
   .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .included-card { padding: 1.3rem; display: flex; align-items: flex-start; gap: 0.8rem; }
   .included-icon { width: 34px; height: 34px; flex: 0 0 34px; border-radius: 10px; background: var(--teal-soft); color: var(--teal-deep); display: grid; place-items: center; font-weight: 700; }
-  .included-card b { display: block; font-family: 'Syne', sans-serif; font-size: 0.92rem; color: var(--ink); line-height: 1.35; }
+  .included-card b { display: block; font-weight: 700; font-size: 0.92rem; color: var(--ink); line-height: 1.35; }
   .included-card p { font-size: 0.8rem; line-height: 1.55; margin-top: 0.3rem; }
   .implementation { margin-top: 1.5rem; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; padding: 1.9rem; border-radius: 18px; border-color: var(--teal-soft2); }
   .implementation h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
@@ -356,13 +358,13 @@
   .statement-doc { padding: 1.5rem; border-radius: 12px; background: #fff; }
   .sample-tag { display: inline-block; font-size: 0.62rem; padding: 0.25rem 0.65rem; letter-spacing: 0.1em; background: var(--teal-soft); border: 1px solid var(--teal-soft2); border-radius: 30px; color: var(--teal-ink); font-weight: 700; text-transform: uppercase; }
   .statement-head { display: flex; justify-content: space-between; gap: 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
-  .statement-head b { font-family: 'Syne', sans-serif; font-size: 0.98rem; color: var(--ink); }
+  .statement-head b { font-weight: 700; font-size: 0.98rem; color: var(--ink); }
   .statement-head small { display: block; font-size: 0.68rem; color: var(--muted); margin-top: 0.25rem; }
   .statement-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin-top: 0.9rem; }
   .statement-table td { padding: 0.65rem 0; border-bottom: 1px solid var(--border); color: var(--body); }
   .statement-table td:last-child { text-align: right; font-weight: 600; color: var(--ink); white-space: nowrap; }
   .statement-net { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--ink); padding-top: 1rem; margin-top: 0.5rem; font-size: 0.82rem; font-weight: 600; color: var(--ink); }
-  .statement-net strong { font-family: 'Syne', sans-serif; font-size: 1.7rem; color: var(--teal-deep); letter-spacing: -0.03em; }
+  .statement-net strong { font-weight: 800; font-size: 1.7rem; color: var(--teal-deep); letter-spacing: -0.03em; }
   .statement-footer { font-size: 0.68rem; color: var(--muted); margin-top: 0.9rem; line-height: 1.5; }
 
   /* ─── TIMELINE ─── */
@@ -379,7 +381,7 @@
   .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .faq details { border: 1px solid var(--border); border-radius: 12px; padding: 0 1.1rem; background: #fff; box-shadow: var(--shadow-sm); }
   .faq details[open] { border-color: var(--teal-soft2); }
-  .faq summary { cursor: pointer; list-style: none; padding: 1.05rem 1.8rem 1.05rem 0; position: relative; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1.35; color: var(--ink); }
+  .faq summary { cursor: pointer; list-style: none; padding: 1.05rem 1.8rem 1.05rem 0; position: relative; font-weight: 700; font-size: 0.95rem; line-height: 1.35; color: var(--ink); }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::after { content: '+'; position: absolute; right: 0; top: 0.85rem; font-size: 1.3rem; color: var(--teal-deep); }
   .faq details[open] summary::after { content: '−'; }
@@ -390,7 +392,7 @@
   .resource { display: flex; gap: 0.85rem; padding: 1.4rem; align-items: flex-start; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
   .resource:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
   .resource-ic { height: 42px; width: 42px; flex: 0 0 42px; background: var(--teal-soft); border-radius: 10px; display: grid; place-items: center; color: var(--teal-deep); font-size: 1.25rem; }
-  .resource b { display: block; font-family: 'Syne', sans-serif; margin-bottom: 0.2rem; font-size: 0.95rem; color: var(--ink); }
+  .resource b { display: block; font-weight: 700; margin-bottom: 0.2rem; font-size: 0.95rem; color: var(--ink); }
   .resource small { color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
   .resource .link-arrow { display: block; color: var(--teal-ink); font-size: 0.78rem; font-weight: 600; margin-top: 0.6rem; }
 
@@ -1025,7 +1027,7 @@
     <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#00c9a3,#009e7f); border-radius:20px 20px 0 0;"></div>
     <button onclick="closeModal()" aria-label="Close" style="position:absolute; top:1rem; right:1rem; background:#f4f9f8; border:1px solid #e5ecea; color:#47585f; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='#d3f0e8'" onmouseout="this.style.background='#f4f9f8'">&#x2715;</button>
     <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#e6f7f2; border:1px solid #d3f0e8; padding:0.3rem 0.9rem; border-radius:100px; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#007a63; margin-bottom:1.25rem;">Get In Touch</div>
-    <h3 style="font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; color:#0d1c24; margin-bottom:0.4rem;">Talk to an Expert</h3>
+    <h3 style="font-family:'Inter',sans-serif; font-size:1.5rem; font-weight:800; letter-spacing:-0.02em; color:#0d1c24; margin-bottom:0.4rem;">Talk to an Expert</h3>
     <p style="font-size:0.85rem; color:#7a8a90; margin-bottom:1.75rem; line-height:1.6;">Fill out the form below and a member of the SRxS team will be in touch shortly.</p>
     <form id="contactForm" onsubmit="submitForm(event)" style="display:flex; flex-direction:column; gap:1rem;">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
@@ -1046,11 +1048,11 @@
         <label for="cf-message" style="display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#7a8a90; margin-bottom:0.4rem;">How Can We Help? *</label>
         <textarea id="cf-message" required rows="4" placeholder="Tell us about your organization and what you're looking for..." style="width:100%; background:#f7faf9; border:1px solid #e5ecea; border-radius:9px; padding:0.7rem 0.9rem; font-size:0.88rem; color:#0d1c24; outline:none; font-family:'Inter',sans-serif; resize:vertical; min-height:100px; transition:border-color 0.2s, background 0.2s;" onfocus="this.style.borderColor='#00b894'; this.style.background='#fff'" onblur="this.style.borderColor='#e5ecea'; this.style.background='#f7faf9'"></textarea>
       </div>
-      <button type="submit" id="submitBtn" style="background:#00b894; color:#fff; border:none; padding:0.85rem 2rem; border-radius:10px; font-size:0.9rem; font-weight:700; cursor:pointer; font-family:'Syne',sans-serif; letter-spacing:0.02em; transition:box-shadow 0.2s, transform 0.2s, background 0.2s;" onmouseover="this.style.background='#009e7f'; this.style.boxShadow='0 12px 28px rgba(0,184,148,0.35)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#00b894'; this.style.boxShadow='none'; this.style.transform='none'">Send Message &#x2192;</button>
+      <button type="submit" id="submitBtn" style="background:#00b894; color:#fff; border:none; padding:0.85rem 2rem; border-radius:10px; font-size:0.9rem; font-weight:700; cursor:pointer; font-family:'Inter',sans-serif; letter-spacing:0.02em; transition:box-shadow 0.2s, transform 0.2s, background 0.2s;" onmouseover="this.style.background='#009e7f'; this.style.boxShadow='0 12px 28px rgba(0,184,148,0.35)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#00b894'; this.style.boxShadow='none'; this.style.transform='none'">Send Message &#x2192;</button>
     </form>
     <div id="formSuccess" style="display:none; text-align:center; padding:2rem 0;">
       <div style="font-size:2.5rem; margin-bottom:1rem;">&#x2705;</div>
-      <h3 style="font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:#009e7f; margin-bottom:0.5rem;">Message Sent!</h3>
+      <h3 style="font-family:'Inter',sans-serif; font-size:1.2rem; font-weight:800; color:#009e7f; margin-bottom:0.5rem;">Message Sent!</h3>
       <p style="font-size:0.85rem; color:#7a8a90; line-height:1.6;">Thank you for reaching out. A member of the SRxS team will be in touch with you shortly.</p>
     </div>
   </div>
