@@ -1,0 +1,7 @@
+# Deployment credentials and the copies deploy.py keeps of replaced files.
+.env.deploy
+.deploy-backup/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
