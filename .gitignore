@@ -2,6 +2,9 @@
 .env.deploy
 .deploy-backup/
 
+# Python bytecode from running tools/deploy.py
+__pycache__/
+
 # Editor and OS noise
 .DS_Store
 Thumbs.db
