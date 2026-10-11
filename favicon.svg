@@ -1,18 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00d4aa"/>
-      <stop offset="100%" stop-color="#00a882"/>
-    </linearGradient>
-  </defs>
-  <!-- Dark rounded square background -->
-  <rect x="1" y="1" width="30" height="30" rx="7" ry="7" fill="#0d1720" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
-  <!-- Teal top accent -->
-  <rect x="1" y="1" width="30" height="4" rx="4" fill="url(#tg)"/>
-  <!-- Horizontal arm -->
-  <rect x="6" y="14" width="20" height="5" rx="2.5" fill="rgba(0,212,170,0.2)" stroke="rgba(0,212,170,0.5)" stroke-width="0.75"/>
-  <!-- Vertical arm -->
-  <rect x="14" y="6" width="5" height="20" rx="2.5" fill="rgba(0,212,170,0.2)" stroke="rgba(0,212,170,0.5)" stroke-width="0.75"/>
-  <!-- Center glow -->
-  <rect x="14" y="14" width="5" height="5" rx="1.5" fill="url(#tg)"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simplified Rx Solutions | Favicon | wordmark set in Inter, converted to outlines -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Simplified Rx Solutions">
+<title>Simplified Rx Solutions</title>
+<defs><linearGradient id="srxsPill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5df5e0"/><stop offset="0.55" stop-color="#22d3c5"/><stop offset="1" stop-color="#0d9f99"/></linearGradient></defs>
+<rect x="1.5" y="1.5" width="61" height="61" rx="15" fill="#0b1f33" stroke="#22d6c8" stroke-width="2.6"/>
+<circle cx="12.5" cy="12.5" r="2.1" fill="#22d6c8"/><circle cx="51.5" cy="12.5" r="2.1" fill="#22d6c8"/><circle cx="12.5" cy="51.5" r="2.1" fill="#22d6c8"/><circle cx="51.5" cy="51.5" r="2.1" fill="#22d6c8"/>
+<rect x="15" y="25.5" width="10" height="13" rx="3.2" fill="#1fcfc1"/>
+<rect x="39" y="25.5" width="10" height="13" rx="3.2" fill="#13b3a8"/>
+<rect x="26.5" y="14" width="11" height="36" rx="3.8" fill="url(#srxsPill)"/>
 </svg>

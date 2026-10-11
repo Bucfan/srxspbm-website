@@ -7,7 +7,7 @@
 
 // ★ CHANGE THIS to your actual email address
 $to_email = "info@simplifiedrxsolutions.com";
-$site_name = "SRxS – Simplified RX Solutions";
+$site_name = "SRxS – Simplified Rx Solutions";
 
 // Backup copy of every lead, sent as a separate message so a delivery problem
 // on $to_email can never lose a submission.
@@ -197,7 +197,7 @@ if ($captured) {
         $reply_intro   = "Thanks for your interest in the SRxS white-label partner program. We've received your details and a member of our partner team will reach out shortly to schedule your 20-minute discovery call.";
     } else {
         $reply_subject = "We received your message – $site_name";
-        $reply_intro   = "Thank you for reaching out to SRxS – Simplified RX Solutions!\n\nWe've received your message and a member of our team will be in touch with you shortly.";
+        $reply_intro   = "Thank you for reaching out to SRxS – Simplified Rx Solutions!\n\nWe've received your message and a member of our team will be in touch with you shortly.";
     }
     // Echo back at most a few thousand characters; the site's forms send far less.
     $reply_copy = strlen($message) > 6000 ? substr($message, 0, 6000) . "\n[message truncated]" : $message;
@@ -216,7 +216,7 @@ In the meantime, you can learn more about our services at simplifiedrxsolutions.
 Best regards,
 The SRxS Team
 ";
-    $reply_headers  = "From: SRxS – Simplified RX Solutions <noreply@simplifiedrxsolutions.com>\r\n";
+    $reply_headers  = "From: SRxS – Simplified Rx Solutions <noreply@simplifiedrxsolutions.com>\r\n";
     $reply_headers .= "Reply-To: $to_email\r\n";
     $reply_headers .= "MIME-Version: 1.0\r\n";
     $reply_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";

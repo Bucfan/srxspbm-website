@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SRxS – Simplified RX Solutions | Icon Mark Only -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72" role="img" aria-label="SRxS Icon">
-  <title>SRxS Icon</title>
-  <defs>
-    <linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00d4aa"/>
-      <stop offset="100%" stop-color="#00a882"/>
-    </linearGradient>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#162030"/>
-      <stop offset="100%" stop-color="#0d1720"/>
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="1.5" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <rect x="2" y="2" width="68" height="68" rx="15" ry="15" fill="url(#bg)" stroke="rgba(0,212,170,0.3)" stroke-width="1.2"/>
-  <rect x="2" y="2" width="68" height="4" rx="4" fill="url(#tg)"/>
-  <rect x="18" y="30" width="36" height="11" rx="5.5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
-  <rect x="31" y="17" width="11" height="36" rx="5.5" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="1"/>
-  <rect x="31" y="30" width="11" height="11" rx="2.5" fill="url(#tg)" filter="url(#glow)"/>
-  <circle cx="10" cy="10" r="2.5" fill="#00d4aa" opacity="0.4"/>
-  <circle cx="63" cy="63" r="2.5" fill="#00d4aa" opacity="0.4"/>
+<!-- Simplified Rx Solutions | Icon mark | wordmark set in Inter, converted to outlines -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Simplified Rx Solutions">
+<title>Simplified Rx Solutions</title>
+<defs><linearGradient id="srxsPill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5df5e0"/><stop offset="0.55" stop-color="#22d3c5"/><stop offset="1" stop-color="#0d9f99"/></linearGradient></defs>
+<rect x="1.5" y="1.5" width="61" height="61" rx="15" fill="#0b1f33" stroke="#22d6c8" stroke-width="2.6"/>
+<circle cx="12.5" cy="12.5" r="2.1" fill="#22d6c8"/><circle cx="51.5" cy="12.5" r="2.1" fill="#22d6c8"/><circle cx="12.5" cy="51.5" r="2.1" fill="#22d6c8"/><circle cx="51.5" cy="51.5" r="2.1" fill="#22d6c8"/>
+<rect x="15" y="25.5" width="10" height="13" rx="3.2" fill="#1fcfc1"/>
+<rect x="39" y="25.5" width="10" height="13" rx="3.2" fill="#13b3a8"/>
+<rect x="26.5" y="14" width="11" height="36" rx="3.8" fill="url(#srxsPill)"/>
 </svg>

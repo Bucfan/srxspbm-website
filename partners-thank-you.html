@@ -22,7 +22,7 @@
 <title>Thanks — Partner Discovery | SRxS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #ffffff; --bg-tint: #f4f9f8; --surface2: #f7faf9;
@@ -37,12 +37,13 @@
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--body); overflow-x: hidden; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
   a { color: inherit; }
+  button, input, select, textarea { font-family: inherit; }
   main { flex: 1; }
 
   /* NAV (shared) */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 5%; background: rgba(255,255,255,0.82); backdrop-filter: blur(18px) saturate(1.6); border-bottom: 1px solid var(--border); }
   .nav-logo { display: flex; align-items: center; }
-  .nav-logo svg { height: 42px; width: auto; display: block; }
+  .nav-logo img, .nav-logo svg { height: 42px; width: auto; display: block; }
   .nav-links { display: flex; align-items: center; gap: 1.9rem; list-style: none; }
   .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; color: var(--body); transition: color 0.2s; }
   .nav-links a:hover { color: var(--teal-deep); }
@@ -88,11 +89,15 @@
 
   /* FOOTER (shared) */
   footer { border-top: 1px solid var(--border); padding: 2.4rem 5%; max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; font-size: 0.82rem; color: var(--muted); width: 100%; }
-  .footer-logo svg { height: 30px; width: auto; display: block; }
+  .footer-logo img, .footer-logo svg { height: 30px; width: auto; display: block; }
   .footer-links { display: flex; gap: 1rem 1.5rem; flex-wrap: wrap; justify-content: center; }
   .footer-links a { color: var(--body); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--teal-deep); }
 
+  /* The logo lockup is wider than the old mark: tighten the row before the links collapse. */
+  @media (max-width: 1140px) { .nav-links { gap: 1.1rem; } .nav-logo img, .nav-logo svg { height: 36px; } .nav-discount { padding: 0.5rem 0.8rem; } }
+  @media (max-width: 600px) { .nav-logo img, .nav-logo svg { height: 32px; } .nav-cta { padding: 0.5rem 1rem; } }
+  @media (max-width: 400px) { .nav-logo img, .nav-logo svg { height: 28px; } }
   @media (max-width: 1000px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
   @media (max-width: 600px) { .page { padding-top: 7.5rem; } .panel { padding: 1.8rem 1.4rem; } .actions a { width: 100%; justify-content: center; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
@@ -100,31 +105,11 @@
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00c9a3"/>
-      <stop offset="100%" stop-color="#009e7f"/>
-    </linearGradient>
-    <g id="srxs-logo">
-      <rect x="2" y="4" width="64" height="64" rx="15" fill="#f4f9f8" stroke="#d3f0e8" stroke-width="1.4"/>
-      <rect x="2" y="4" width="64" height="3.5" rx="3" fill="url(#tealGrad)"/>
-      <rect x="18" y="28" width="32" height="10" rx="5" fill="#d3f0e8"/>
-      <rect x="29" y="17" width="10" height="32" rx="5" fill="#d3f0e8"/>
-      <rect x="29" y="28" width="10" height="10" rx="2.5" fill="url(#tealGrad)"/>
-      <circle cx="9" cy="11.5" r="2" fill="#00b894" opacity="0.5"/>
-      <circle cx="59" cy="60.5" r="2" fill="#00b894" opacity="0.5"/>
-      <text x="82" y="37" font-family="Syne, Arial Black, sans-serif" font-size="27" font-weight="800" letter-spacing="-0.5"><tspan fill="#0d1c24">SR</tspan><tspan fill="#00b894">x</tspan><tspan fill="#0d1c24">S</tspan></text>
-      <line x1="82" y1="44" x2="176" y2="44" stroke="#d3f0e8" stroke-width="1"/>
-      <text x="82" y="57" font-family="Inter, Arial, sans-serif" font-size="8.5" font-weight="600" letter-spacing="3" fill="#7a8a90">SIMPLIFIED RX SOLUTIONS</text>
-    </g>
-  </defs>
-</svg>
 
 <!-- NAV -->
 <nav aria-label="Primary">
   <div class="nav-logo">
-    <a href="index.html" aria-label="SRxS home"><svg viewBox="0 0 300 72" role="img" aria-label="SRxS — Simplified RX Solutions"><use href="#srxs-logo"/></svg></a>
+    <a href="index.html" aria-label="SRxS home"><img src="assets/srxs-logo-light.svg" alt="Simplified Rx Solutions" width="396" height="64"></a>
   </div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -170,7 +155,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><svg viewBox="0 0 300 72" role="img" aria-label="SRxS"><use href="#srxs-logo"/></svg></div>
+  <div class="footer-logo"><img src="assets/srxs-logo-light.svg" alt="Simplified Rx Solutions" width="396" height="64"></div>
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
