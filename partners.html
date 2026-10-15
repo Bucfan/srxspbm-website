@@ -445,9 +445,6 @@
   @media (max-width: 1140px) { .nav-links { gap: 1.1rem; } .nav-logo img, .nav-logo svg { height: 36px; } .nav-discount { padding: 0.5rem 0.8rem; } }
   @media (max-width: 600px) { .nav-logo img, .nav-logo svg { height: 32px; } .nav-cta { padding: 0.5rem 1rem; } }
   @media (max-width: 400px) { .nav-logo img, .nav-logo svg { height: 28px; } }
-  @media (max-width: 1000px) {
-    nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; }
-  }
   @media (max-width: 900px) {
     section { padding: 4.5rem 0; }
     .hero { padding-top: 7.5rem; }
@@ -492,6 +489,8 @@
     .case-saved { font-size: 2.2rem; }
   }
 </style>
+<link rel="stylesheet" href="assets/nav.css">
+<script src="assets/nav.js" defer></script>
 </head>
 <body>
 
@@ -504,7 +503,8 @@
     </a>
   </div>
 
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="primary-menu">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li class="nav-dd">

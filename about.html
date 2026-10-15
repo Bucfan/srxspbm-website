@@ -195,7 +195,6 @@
   @media (max-width: 700px) {
     .founders-grid { grid-template-columns: 1fr; }
     .expertise-grid { grid-template-columns: 1fr; }
-    nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; }
     .btn-ghost { margin-left: 0; margin-top: 0.75rem; }
   }
 
@@ -215,11 +214,11 @@
   .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
   .dd-service { background: #eef3f1; color: #59646f; }
   .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
-  /* With the Partners item the full link row no longer fits below 1000px. */
-  @media (max-width: 1000px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
   /* Below 400px two stat cards no longer fit side by side. */
   @media (max-width: 400px) { .stats-row { grid-template-columns: 1fr; } }
 </style>
+<link rel="stylesheet" href="assets/nav.css">
+<script src="assets/nav.js" defer></script>
 </head>
 <body>
 
@@ -229,7 +228,8 @@
   <div class="nav-logo">
     <a href="index.html" aria-label="SRxS home"><img src="assets/srxs-logo-light.svg" alt="Simplified Rx Solutions" width="396" height="64"></a>
   </div>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="primary-menu">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
     <li class="nav-dd">

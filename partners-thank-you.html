@@ -98,10 +98,11 @@
   @media (max-width: 1140px) { .nav-links { gap: 1.1rem; } .nav-logo img, .nav-logo svg { height: 36px; } .nav-discount { padding: 0.5rem 0.8rem; } }
   @media (max-width: 600px) { .nav-logo img, .nav-logo svg { height: 32px; } .nav-cta { padding: 0.5rem 1rem; } }
   @media (max-width: 400px) { .nav-logo img, .nav-logo svg { height: 28px; } }
-  @media (max-width: 1000px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
   @media (max-width: 600px) { .page { padding-top: 7.5rem; } .panel { padding: 1.8rem 1.4rem; } .actions a { width: 100%; justify-content: center; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 </style>
+<link rel="stylesheet" href="assets/nav.css">
+<script src="assets/nav.js" defer></script>
 </head>
 <body>
 
@@ -111,7 +112,8 @@
   <div class="nav-logo">
     <a href="index.html" aria-label="SRxS home"><img src="assets/srxs-logo-light.svg" alt="Simplified Rx Solutions" width="396" height="64"></a>
   </div>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="primary-menu">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li class="nav-dd">

@@ -439,7 +439,6 @@
   @media (max-width: 900px) {
     .about, .tech-inner { grid-template-columns: 1fr; gap: 3rem; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; }
   }
   @media (max-width: 640px) {
     .hero { padding-top: 8.5rem; }
@@ -468,13 +467,13 @@
   .dd-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.42rem; border-radius: 4px; flex-shrink: 0; }
   .dd-service { background: #eef3f1; color: #59646f; }
   .dd-product { background: var(--teal-soft); color: var(--teal-ink); }
-  /* With the Partners item the full link row no longer fits below 1000px. */
   /* The logo lockup is wider than the old mark: tighten the row before the links collapse. */
   @media (max-width: 1140px) { .nav-links { gap: 1.1rem; } .nav-logo img, .nav-logo svg { height: 36px; } .nav-discount { padding: 0.5rem 0.8rem; } }
   @media (max-width: 600px) { .nav-logo img, .nav-logo svg { height: 32px; } .nav-cta { padding: 0.5rem 1rem; } }
   @media (max-width: 400px) { .nav-logo img, .nav-logo svg { height: 28px; } }
-  @media (max-width: 1000px) { nav .nav-links li:not(:last-child):not(.nav-cta-li) { display: none; } }
 </style>
+<link rel="stylesheet" href="assets/nav.css">
+<script src="assets/nav.js" defer></script>
 </head>
 <body>
 
@@ -487,7 +486,8 @@
     </a>
   </div>
 
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="primary-menu">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li class="nav-dd">

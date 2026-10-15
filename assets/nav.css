@@ -1,0 +1,38 @@
+/* Mobile navigation, shared by every page. Desktop nav styles stay inline in each page.
+   Below 1000px the link row no longer fits, so it collapses behind a hamburger button. */
+.nav-toggle { display: none; }
+
+@media (max-width: 1000px) {
+  nav:not(.page-jumps) { flex-wrap: wrap; }
+  nav.menu-open { background: #fff; max-height: 100vh; overflow-y: auto; }
+
+  .nav-toggle {
+    display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 40px; padding: 0 11px; margin-left: auto;
+    background: transparent; border: 1px solid var(--border, #e5ecea); border-radius: 9px;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
+  .nav-toggle span { display: block; height: 2px; border-radius: 2px; background: var(--ink, #0d1c24); transition: transform 0.2s, opacity 0.2s; }
+  nav.menu-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  nav.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  nav .nav-links {
+    display: none; flex-basis: 100%; width: 100%; flex-direction: column; align-items: stretch; gap: 0;
+    margin-top: 0.75rem; padding: 0.35rem 0 0.75rem; border-top: 1px solid var(--border, #e5ecea);
+  }
+  nav.menu-open .nav-links { display: flex; }
+  nav .nav-links li { display: block; }
+  nav .nav-links > li > a { display: block; padding: 0.85rem 0.25rem; font-size: 1rem; }
+  nav .nav-links > li + li { border-top: 1px solid var(--border, #e5ecea); }
+
+  /* The Products & Services dropdown becomes an inline, indented list. */
+  nav .nav-dd-menu { display: block; position: static; min-width: 0; background: transparent; border: 0; box-shadow: none; padding: 0 0 0.5rem 1rem; margin: 0; }
+  nav .nav-dd-menu::before { display: none; }
+  nav .nav-dd-menu a { white-space: normal; padding: 0.55rem 0.25rem; font-size: 0.95rem; }
+  nav .dd-caret { display: none; }
+
+  /* The two button-style links become full-width buttons. */
+  nav .nav-links li a.nav-discount, nav .nav-links li a.nav-cta { display: block; text-align: center; margin: 0.6rem 0 0; padding: 0.85rem 1rem !important; font-size: 0.95rem; }
+  nav .nav-links > li:has(.nav-discount), nav .nav-links > li.nav-cta-li { border-top: 0; }
+}
